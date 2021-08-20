@@ -22,13 +22,13 @@
 	</test>
 
 
-<!--	<test name="FactsTesting_TC015_ Maestro_Validate Message for Brand " >-->
+	<test name="FactsTesting_TC015_ Maestro_Validate Message for Brand " >
 
-<!--		<classes>-->
-<!--			<parameter name="TestCaseID" value="TC015_Maestro_Paper"></parameter>-->
-<!--			<class name="Master.BBMaster"></class>-->
-<!--		</classes>-->
-<!--	</test>-->
+		<classes>
+			<parameter name="TestCaseID" value="TC015_Maestro_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
 
 
 
