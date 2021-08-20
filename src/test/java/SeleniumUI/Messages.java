@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 
@@ -35,8 +36,8 @@ public class Messages extends BaseClass {
         try {
             driver.findElement(By.xpath(messagesXpath)).click();
             Thread.sleep(1000);
-             reporter.reportLogPassWithScreenshot("Messages Page is Displayed");
-             }
+            reporter.reportLogPassWithScreenshot("Messages Page is Displayed");
+        }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -55,10 +56,10 @@ public class Messages extends BaseClass {
 
 //Select Language
 
-               WebElement element = driver.findElement(By.xpath(languageXpath));
-               Select lang = new Select(element);
-               lang.selectByVisibleText(keepRefer.get("LANGUAGE"));
-                Thread.sleep(1000);
+        WebElement element = driver.findElement(By.xpath(languageXpath));
+        Select lang = new Select(element);
+        lang.selectByVisibleText(keepRefer.get("LANGUAGE"));
+        Thread.sleep(1000);
 
         driver.switchTo().frame(0);
         driver.findElement(By.xpath(messageTextXpath)).clear();
@@ -83,10 +84,12 @@ public class Messages extends BaseClass {
         messageText = keepRefer.get("MESSAGE_TEXT");
         Thread.sleep(1000);
         driver.switchTo().frame(0);
-        driver.findElement(By.xpath(messageTextXpath)).sendKeys(messageText);
+        WebElement text = driver.findElement(By.xpath(messageTextXpath));
+        text.sendKeys(messageText);
         Thread.sleep(5000);
 
-//Inserting the message variable
+        //Inserting the message variable
+
         driver.switchTo().parentFrame();
         messageVariable = keepRefer.get("MESSAGE_VARIABLE");
         driver.findElement(By.xpath(messageVariableXpath)).click();

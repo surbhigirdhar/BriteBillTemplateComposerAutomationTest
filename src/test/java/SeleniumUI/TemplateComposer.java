@@ -15,7 +15,6 @@ public class TemplateComposer extends BaseClass {
     public String saveButtonXpath = "//button[@class='save ng-binding ng-scope']";
     public String searchProjectXpath = "//input[@id='bb-filter-form-filter']";
     public String goButtonXpath = "//*[contains(text(),'Go ')]";
-//  public String selectedProjectXpath = "//*[contains(text(),'"+keepRefer.get("PROJECT_NAME")+"')]";
     public String cbuXpath = "//*[contains(text(),'cbu')]";
     public String ebuXpath = "//*[contains(text(),'ebu')]";
     public String BusinessUnit;

@@ -28,12 +28,16 @@ public class LiveAreas extends BaseClass {
     public String dateXpath ="//button[@class= 'btn btn-default btn-sm uib-title']";
     public String yearXpath = "//button[@class = 'btn btn-default btn-sm uib-title']";
     public String previousYearsXpath = "//button[@class = 'btn btn-default btn-sm pull-left uib-left']";
-    public String selectYearXpath = "//button[@class= 'btn btn-default']/parent::*//*[contains(text(),'2011')]";
+    public String selectYearXpath = "//button[@class= 'btn btn-default']/parent::*//*[contains(text(),'2015')]";
     public String selectMonthXpath = "//*[contains(text(),'Jan')]";
     public String selectDateXpath = "//button[@class= 'btn btn-default btn-sm active']/parent::*//*[contains(text(),'01')]";
     public String setPriorityXpath = "//input[@id = 'bb-te-add-rule-modal-priority-input']";
     public String okButtonXpath = "//button[@class = 'add-rule-modal-footer-add ng-binding']";
     public String closeButtonXpath = "//*[contains(text(),'Close')]";
+    public String levelValue;
+    public String levelXpath = "//select[@id='bb-te-decision-editor-level-select']";
+    public String levelType;
+    public String levelTypeXpath = "//select[@id = 'bb-te-live-area-editor-options-select']";
 
     public void LiveArea() throws InterruptedException {
 
@@ -41,6 +45,8 @@ public class LiveAreas extends BaseClass {
             driver.findElement(By.xpath(liveAreasXpath)).click();
             Thread.sleep(5000);
             reporter.reportLogPassWithScreenshot("Live Areas Page is Displayed");
+            SearchLiveArea();
+            AddRule();
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -77,12 +83,20 @@ public class LiveAreas extends BaseClass {
         Thread.sleep(2000);
         reporter.reportLogPassWithScreenshot("Selected Live Area '" + liveAreaName + "' is Ready to Edit");
         Thread.sleep(2000);
+        levelType = keepRefer.get("LEVEL_TYPE");
+        //    Select type = new Select(driver.findElement(By.xpath(levelTypeXpath)));
+        //   type.selectByVisibleText(levelType);
+        Thread.sleep(1000);
+        levelValue = keepRefer.get("LEVEL");
+        //     Select level = new Select(driver.findElement(By.xpath(levelXpath)));
+        //   level.selectByVisibleText(levelValue);
+        Thread.sleep(1000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("scroll(0,800)");
         Thread.sleep(1000);
     }
     public void AddRule() throws InterruptedException {
-    // Add Rule
+        // Add Rule
         driver.findElement(By.xpath(addRuleXpath)).click();
         Thread.sleep(1000);
 

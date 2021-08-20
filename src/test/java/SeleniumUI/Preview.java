@@ -65,7 +65,8 @@ public class Preview extends BaseClass
 
         Thread.sleep(1000);
         //select data sample
-        driver.findElement(By.id("previewModalInputDocument")).sendKeys("MaestroSample");
+        String dataSample = keepRefer.get("DATA_SAMPLE");
+        driver.findElement(By.id("previewModalInputDocument")).sendKeys(dataSample);
         Thread.sleep(1000);
         driver.findElement(By.id("previewModalInputDocument")).click();
         driver.findElement(By.xpath("//*[@id='previewModalInputDocument']//..//li")).click();
@@ -73,7 +74,8 @@ public class Preview extends BaseClass
         Thread.sleep(1000);
 
         //select Customer Sample
-        driver.findElement(By.id("previewModalInputCustomer")).sendKeys("Customer3_CBU_Maestro");
+        String customerSample = keepRefer.get("CUSTOMER_SAMPLE");
+        driver.findElement(By.id("previewModalInputCustomer")).sendKeys(customerSample);
         Thread.sleep(1000);
         driver.findElement(By.id("previewModalInputCustomer")).click();
         driver.findElement(By.xpath("//*[@id='previewModalInputCustomer']//..//li")).click();

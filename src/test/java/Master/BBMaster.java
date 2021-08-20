@@ -81,7 +81,7 @@ public class BBMaster extends BaseClass {
         tc.SearchProject();
 
         // Go to Messages Folder
-/*
+
         msg.Message();
 
        String[] invoiceTypeArr = keepRefer.get("INVOICE_TYPE").split(";"); //Paper or Digital
@@ -108,19 +108,13 @@ public class BBMaster extends BaseClass {
                 msg.NewMessage();
             }
 
-        //Create new Decision
+       //Create new Decision
             dc.Decision();
-            dc.NewDecision();
-            // Go to Live Areas Folder
+  // Go to Live Areas Folder
             la.LiveArea();
-           // Search a Live Area
-           la.SearchLiveArea();
-            // To Add a New Rule
-            la.AddRule();
-
+ // Go to Preview
             pw.previewCBU();
         }
-*/
 
             status =  pw.previewCBU();
 
