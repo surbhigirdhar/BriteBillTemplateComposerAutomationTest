@@ -9,23 +9,53 @@
 		<listener class-name="listeners.TestListener" />
 	</listeners>
 
-	<parameter name="Env" value="QA7" />
-	<parameter name="CalendarName" value="BillModernization_Phase2_R0921_Tests.csv" />
+	<parameter name="Env" value="QA5" />
+	<parameter name="CalendarName" value="BillModernization_Phase2_R1021_Tests.csv" />
 
 
-	<test name="FactsTesting_TC001_Maestro_Validate Message for First Bill" >
+	<test name="TC031_V21_Validate Message for CYCLE_CODE for CBU account" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC001_Maestro_Paper"></parameter>
+			<parameter name="TestCaseID" value="TC031_V21_Validate Message for CYCLE_CODE for CBU account"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
 
-
-	<test name="FactsTesting_TC015_ Maestro_Validate Message for Brand " >
+	<test name="TC032_V21_Validate Message for CYCLE_CODE for EBU account" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC015_Maestro_Paper"></parameter>
+			<parameter name="TestCaseID" value="TC032_V21_Validate Message for CYCLE_CODE for EBU account"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+
+	<test name="TC033_V21_Validate Message for CYCLE_YEAR for CBU account" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC033_V21_Validate Message for CYCLE_YEAR for CBU account"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC034_V21_Validate Message for CYCLE_YEAR for CBU account" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC034_V21_Validate Message for CYCLE_YEAR for CBU account"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+
+	<test name="TC035_V21_Validate Message for CYCLE_MONTH for CBU account" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC035_V21_Validate Message for CYCLE_MONTH for CBU account"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+
+	<test name="TC036_V21_Validate Message for CYCLE_MONTH for EBU account" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC036_V21_Validate Message for CYCLE_MONTH for EBU account"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>

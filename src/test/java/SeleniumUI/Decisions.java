@@ -68,8 +68,8 @@ public class Decisions extends BaseClass {
 
         driver.findElement(By.xpath(newButtonXpath)).click();
         Thread.sleep(1000);
-        //  decisionName = keepRefer.get("MESSAGE_NAME");
-        decisionName = "Test123";
+        decisionName = keepRefer.get("MESSAGE_NAME");
+//        decisionName = "Test123";
         driver.findElement(By.xpath(nameXpath)).sendKeys(decisionName);
         Thread.sleep(1000);
         trueIfTextbox = keepRefer.get("TRUE_IF");

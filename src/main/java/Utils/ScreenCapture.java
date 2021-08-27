@@ -24,16 +24,16 @@ public class ScreenCapture {
 	 * @param driver web driver
 	 * @return the path of the screenshot as String
 	 */
-	public static String getScreenShot(WebDriver driver)
+	public static String getScreenShot(WebDriver driver,String TestName,String StepName)
 	{
 		
 		System.setProperty("org.uncommons.reportng.escape-output", "false");
 		String  resultsDir=ExtentManager.absolutePathToReport;
 		String strLocalTime = ZonedDateTime.now(ZoneId.of("America/Montreal")).format(DateTimeFormatter.ofPattern("YYYY-MM-dd-HH-mm-ss"));
       
-		String fileName = "ScreenShot_" + strLocalTime +"_"+Thread.currentThread().getId()+ ".png";
+		String fileName = "ScreenShot_" + StepName + "_" + strLocalTime +"_"+Thread.currentThread().getId()+ ".png";
       
-		String screenShotFilePath = resultsDir + "/screenshots/" + fileName ;
+		String screenShotFilePath = resultsDir + "/" + TestName+"/" + fileName ;
 		
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
@@ -42,6 +42,7 @@ public class ScreenCapture {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "./screenshots/"+fileName;
+		return "./" +TestName + "/"+fileName;
 	}
+
 }

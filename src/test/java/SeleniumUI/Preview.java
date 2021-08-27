@@ -47,7 +47,7 @@ public class Preview extends BaseClass
 
         Select documentType = new Select(driver.findElement(By.xpath("//*[@ng-model='vm.form.documentType']")));
         documentType.selectByValue("string:bill");
-
+        Thread.sleep(2000);
         if (keepRefer.get("INVOICE_TYPE").equalsIgnoreCase("Paper"))
         {
             driver.findElement(By.id("previewModalRadioPrint")).click();
@@ -94,6 +94,7 @@ public class Preview extends BaseClass
             reporter.reportLogFailWithScreenshot("Generate PDF button not displayed");
         }
 
+        Thread.sleep(5000);
        File pdfFileName = FileManager.getPDFFile();
 
         HashMap<String,Object> chromePrefs = new HashMap<>();
@@ -118,7 +119,7 @@ public class Preview extends BaseClass
         try {
             String content = pdfUtil.getText(pdfFileName.getAbsolutePath());
 
-            if(content.contains(keepRefer.get("MESSAGE_TEXT_EN")))
+            if(content.contains((keepRefer.get("MESSAGE_TEXT_EN")).substring(0,keepRefer.get("MESSAGE_TEXT_EN").indexOf("{{"))))
             {
                 reporter.reportLogPassWithScreenshot("Message present in PDF Bill");
                 status = "Pass";

@@ -77,11 +77,11 @@ public class LiveAreas extends BaseClass {
 
         driver.findElement(By.xpath(goButtonXpath)).click();
         Thread.sleep(2000);
-        reporter.reportLogPassWithScreenshot("Selected Live Area '" + liveAreaName + "' is Displayed");
+        reporter.reportLogPassWithScreenshot("Selected Live Area is Displayed");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[contains(text(),'"+ liveAreaName +"')]")).click();
         Thread.sleep(2000);
-        reporter.reportLogPassWithScreenshot("Selected Live Area '" + liveAreaName + "' is Ready to Edit");
+        reporter.reportLogPassWithScreenshot("Selected Live Area is Ready to Edit");
         Thread.sleep(2000);
         levelType = keepRefer.get("LEVEL_TYPE");
         //    Select type = new Select(driver.findElement(By.xpath(levelTypeXpath)));
@@ -100,7 +100,7 @@ public class LiveAreas extends BaseClass {
         driver.findElement(By.xpath(addRuleXpath)).click();
         Thread.sleep(1000);
 
-        decisionName = keepRefer.get("DECISION_NAME");
+        decisionName = keepRefer.get("MESSAGE_NAME");
 
         WebElement select = driver.findElement(By.xpath(decisionXpath));
         select.sendKeys(decisionName);

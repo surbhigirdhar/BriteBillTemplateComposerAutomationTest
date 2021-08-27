@@ -25,7 +25,7 @@ public class TemplateComposer extends BaseClass {
         Select selectApp = new Select(driver.findElement(By.xpath("//select[@ng-model = 'selectedApp']")));
         selectApp.selectByVisibleText("Template Composer");
         Thread.sleep(1000);
-        reporter.reportLogFailWithScreenshot("Template Composer App is Displayed successfully");
+        reporter.reportLogPassWithScreenshot("Template Composer App is Displayed successfully");
 
    }
 
@@ -33,7 +33,7 @@ public class TemplateComposer extends BaseClass {
 
         driver.findElement(By.xpath(projectsXpath)).click();
        Thread.sleep(1000);
-       reporter.reportLogFailWithScreenshot("Projects Page Displayed");
+       reporter.reportLogPassWithScreenshot("Projects Page Displayed");
     }
    public void NewProject() {
     try {
@@ -74,7 +74,7 @@ public class TemplateComposer extends BaseClass {
 
             driver.findElement(By.xpath(goButtonXpath)).click();
             Thread.sleep(1000);
-             reporter.reportLogPassWithScreenshot("Selected Project '"+ projectName +"' is Displayed ");
+             reporter.reportLogPassWithScreenshot("Selected Project is Displayed ");
 
             driver.findElement(By.xpath("//*[contains(text(),'"+ projectName +"')]")).click();
             Thread.sleep(1000);

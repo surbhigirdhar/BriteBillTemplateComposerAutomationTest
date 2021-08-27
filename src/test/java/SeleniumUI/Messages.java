@@ -88,19 +88,19 @@ public class Messages extends BaseClass {
         text.sendKeys(messageText);
         Thread.sleep(5000);
 
-        //Inserting the message variable
+   /*    //Inserting the message variable
 
+            driver.switchTo().parentFrame();
+            messageVariable = keepRefer.get("MESSAGE_VARIABLE");
+            driver.findElement(By.xpath(messageVariableXpath)).click();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath(searchVariableXpath)).sendKeys(messageVariable);
+            Thread.sleep(2000);
+            reporter.reportLogPassWithScreenshot("Message Variable Search Page is Displayed");
+            driver.findElement(By.xpath(insertButtonXpath)).click();
+            Thread.sleep(2000);
+    */
         driver.switchTo().parentFrame();
-        messageVariable = keepRefer.get("MESSAGE_VARIABLE");
-        driver.findElement(By.xpath(messageVariableXpath)).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath(searchVariableXpath)).sendKeys(messageVariable);
-        Thread.sleep(2000);
-        reporter.reportLogPassWithScreenshot("Message Variable Search Page is Displayed");
-        driver.findElement(By.xpath(insertButtonXpath)).click();
-        Thread.sleep(2000);
-
-
         fontType = keepRefer.get("MESSAGE_STYLE");
 
         driver.findElement(By.xpath(fontXpath)).click();

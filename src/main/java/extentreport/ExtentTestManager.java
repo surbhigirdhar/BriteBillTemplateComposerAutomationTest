@@ -65,7 +65,8 @@ public class ExtentTestManager implements Reporter{
     @Override
     public void reportLogWithScreenshot(String stepName) {
     	try {
-    		getTest().log(LogStatus.INFO, stepName, getTest().addScreenCapture(ScreenCapture.getScreenShot(getDriver())));
+            String testname = getTest().getTest().getName();
+    		getTest().log(LogStatus.INFO, stepName, getTest().addScreenCapture(ScreenCapture.getScreenShot(getDriver(),testname,stepName)));
     	}catch (UnhandledAlertException  alertExcpt) {
     		getTest().log(LogStatus.INFO, alertExcpt.toString());
     		alertExcpt.printStackTrace();
@@ -80,7 +81,8 @@ public class ExtentTestManager implements Reporter{
     
 	@Override
     public void reportLogPassWithScreenshot(String stepName) {
-    	getTest().log(LogStatus.PASS, stepName, getTest().addScreenCapture(ScreenCapture.getScreenShot(getDriver())));
+        String testname = getTest().getTest().getName();
+    	getTest().log(LogStatus.PASS, stepName, getTest().addScreenCapture(ScreenCapture.getScreenShot(getDriver(),testname,stepName)));
     }
 
     @Override
@@ -91,7 +93,8 @@ public class ExtentTestManager implements Reporter{
     
 	@Override
     public void reportLogFailWithScreenshot(String stepName) {
-    	getTest().log(LogStatus.ERROR, stepName, getTest().addScreenCapture(ScreenCapture.getScreenShot(getDriver())));
+        String testname = getTest().getTest().getName();
+    	getTest().log(LogStatus.ERROR, stepName, getTest().addScreenCapture(ScreenCapture.getScreenShot(getDriver(),testname,stepName)));
     	failFlags.replace(Thread.currentThread().getId(), true);
     }
 
