@@ -29,99 +29,96 @@ public class BBMaster extends BaseClass {
     Preview pw = new Preview();
 
 
-    @Parameters({"Env", "CalendarName","TestCaseID" })
+    @Parameters({"Env", "CalendarName", "TestCaseID"})
     @Test
-    public void executeTest(String env, String calendarName, String testCaseID) throws Exception
-    {
-        calendarName = System.getProperty("user.dir") + "/resources/" +  calendarName;
-        EnvironmentConf.ENVIRONMENT_NAME =env;
+    public void executeTest(String env, String calendarName, String testCaseID) throws Exception {
+        calendarName = System.getProperty("user.dir") + "/resources/" + calendarName;
+        EnvironmentConf.ENVIRONMENT_NAME = env;
 
-        keepRefer = csvHandler.readKeepRefer(calendarName,testCaseID);
+
+        keepRefer = csvHandler.readKeepRefer(calendarName, testCaseID);
+        keepRefer.put("TestCaseID",testCaseID);
         csvHandler.ReadEnvironmentCalendar(env);
         EnvironmentConf.SetEnvironmentDetails(env);
         String status = "Pass";
 
         String action = keepRefer.get("ACTION");
 
-        switch (action)
-        {
-            case "validateMessage" :
-               status = validateMessage();
+        switch (action) {
+            case "validateMessage":
+                status = validateMessage();
                 break;
         }
 
-        if(status.contentEquals("Pass"))
-        {
+        if (status.contentEquals("Pass")) {
             reporter.reportLogPass("Test Passed");
-        }
-        else
+        } else
             reporter.reportLogFail("Test Failed");
 
     }
 
     private String validateMessage() throws InterruptedException, IOException {
         String status = "Pass";
-        try {
-            FileManager.deleteDirectory(MainConfig.properties.getProperty("PDF_PATH"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        //To launch BriteBill Application
         bblaunch.launchBriteBill();
-        //Selection of App in BriteBill Application
         tc.AppSelection();
-        //Go to Projects Folder
         tc.Projects();
-        //To Create a New Project
-        // tc.NewProject();
-        //To Search a Project
-
         tc.SearchProject();
 
-        // Go to Messages Folder
+        msg.Message();
 
-       msg.Message();
+        String[] invoiceTypeArr = keepRefer.get("INVOICE_TYPE").split(";"); //Paper or Digital
 
-       String[] invoiceTypeArr = keepRefer.get("INVOICE_TYPE").split(";"); //Paper or Digital
-
-        for(String invoiceType : invoiceTypeArr)
-        {
-            keepRefer.put("INVOICE",invoiceType);
-            keepRefer.put("MESSAGE_NAME",keepRefer.get("MESSAGE_ID")+""+keepRefer.get("INVOICE")+ CommonUtils.generateRandomDigits(4));
-            keepRefer.put("MESSAGE_STYLE",keepRefer.get("MSG_STYLE_"+invoiceType.toUpperCase()));
+        for (String invoiceType : invoiceTypeArr) {
+            keepRefer.put("INVOICE", invoiceType);
+            keepRefer.put("MESSAGE_NAME", keepRefer.get("MESSAGE_ID") + "" + keepRefer.get("INVOICE") + CommonUtils.generateRandomDigits(4));
+            keepRefer.put("MESSAGE_STYLE", keepRefer.get("MSG_STYLE_" + invoiceType.toUpperCase()));
 
             //Create new Message
 
-            if(!keepRefer.get("MESSAGE_TEXT_EN").isEmpty())
-            {
+            if (!keepRefer.get("MESSAGE_TEXT_EN").isEmpty()) {
                 keepRefer.put("MESSAGE_TEXT", keepRefer.get("MESSAGE_TEXT_EN"));
                 keepRefer.put("LANGUAGE", "English");
                 msg.NewMessage();
             }
 
-            if(!keepRefer.get("MESSAGE_TEXT_FR").isEmpty())
-            {
+            if (!keepRefer.get("MESSAGE_TEXT_FR").isEmpty()) {
                 keepRefer.put("MESSAGE_TEXT", keepRefer.get("MESSAGE_TEXT_FR"));
                 keepRefer.put("LANGUAGE", "French");
                 msg.NewMessage();
             }
 
-       //Create new Decision
             dc.Decision();
-  // Go to Live Areas Folder
             la.LiveArea();
+            pw.launchPreview();
+
+            if (!keepRefer.get("CUSTOMER_SAMPLE_EN").isEmpty()) {
+                pw.previewPDF(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE"), "EN");// this will download pdf
+            }
+            if (!keepRefer.get("CUSTOMER_SAMPLE_FR").isEmpty()) {
+                pw.previewPDF(keepRefer.get("CUSTOMER_SAMPLE_FR"), keepRefer.get("DATA_SAMPLE"), "FR");
+            }
+            if (!keepRefer.get("DATA_SAMPLE_NEG").isEmpty()) {
+                pw.previewPDF(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE_NEG"), "NEG");
+            }
 
 
-        // Go to Preview
+            if (!keepRefer.get("MESSAGE_TEXT_EN").isEmpty()) {
+                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_EN"),"EN");
+            }
 
-            status =  pw.previewCBU();
+            if (!keepRefer.get("MESSAGE_TEXT_FR").isEmpty()) {
+                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_FR"),"FR");
+            }
+            if (!keepRefer.get("MESSAGE_TEXT_EN").isEmpty()) {
+                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_EN"),"NEG");
+            }
 
+        }
+        return status;
 
-}
+    }
 
-            return status;
-   }
 
 
 }

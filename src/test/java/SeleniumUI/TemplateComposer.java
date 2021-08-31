@@ -21,18 +21,18 @@ public class TemplateComposer extends BaseClass {
 
 
     public void AppSelection() throws InterruptedException {
-
+        Thread.sleep(1000);
         Select selectApp = new Select(driver.findElement(By.xpath("//select[@ng-model = 'selectedApp']")));
         selectApp.selectByVisibleText("Template Composer");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         reporter.reportLogPassWithScreenshot("Template Composer App is Displayed successfully");
 
    }
 
-   public void Projects() throws InterruptedException {
-
-        driver.findElement(By.xpath(projectsXpath)).click();
-       Thread.sleep(1000);
+   public void Projects() throws InterruptedException
+   {
+       driver.findElement(By.xpath(projectsXpath)).click();
+       Thread.sleep(2000);
        reporter.reportLogPassWithScreenshot("Projects Page Displayed");
     }
    public void NewProject() {

@@ -9,6 +9,7 @@ import javafx.scene.control.RadioButton;
 
 import jdk.nashorn.internal.runtime.Context;
 import net.bytebuddy.implementation.Implementation;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.tools.ant.util.Base64Converter;
@@ -34,16 +35,16 @@ import java.util.HashMap;
 
 public class Preview extends BaseClass
 {
-    public String previewCBU() throws InterruptedException, IOException
-    {
-        String status = "Fail";
-        PDFUtil pdfUtil = new PDFUtil();
-
-
+    public void launchPreview() throws InterruptedException {
         //click preview button
         driver.findElement(By.xpath("//*[contains(text(),'Preview')]")).click();
         Thread.sleep(1000);
         reporter.reportLogPassWithScreenshot("Preview Page is Displayed");
+
+    }
+
+    public void previewPDF(String customerSample, String dataSample,String lang) throws IOException, InterruptedException {
+        FileManager.deleteDirectory(MainConfig.properties.getProperty("PDF_PATH"));
 
         Select documentType = new Select(driver.findElement(By.xpath("//*[@ng-model='vm.form.documentType']")));
         documentType.selectByValue("string:bill");
@@ -53,6 +54,7 @@ public class Preview extends BaseClass
             driver.findElement(By.id("previewModalRadioPrint")).click();
 
             //select Template
+            driver.findElement(By.id("previewModalInputTemplate")).clear();
             driver.findElement(By.id("previewModalInputTemplate")).sendKeys("root ");
             Thread.sleep(1000);
             driver.findElement(By.id("previewModalInputTemplate")).click();
@@ -65,20 +67,19 @@ public class Preview extends BaseClass
 
         Thread.sleep(1000);
         //select data sample
-        String dataSample = keepRefer.get("DATA_SAMPLE");
+        driver.findElement(By.id("previewModalInputDocument")).clear();
         driver.findElement(By.id("previewModalInputDocument")).sendKeys(dataSample);
         Thread.sleep(1000);
         driver.findElement(By.id("previewModalInputDocument")).click();
         driver.findElement(By.xpath("//*[@id='previewModalInputDocument']//..//li")).click();
-
         Thread.sleep(1000);
 
         //select Customer Sample
-        String customerSample = keepRefer.get("CUSTOMER_SAMPLE");
-        driver.findElement(By.id("previewModalInputCustomer")).sendKeys(customerSample);
-        Thread.sleep(1000);
-        driver.findElement(By.id("previewModalInputCustomer")).click();
-        driver.findElement(By.xpath("//*[@id='previewModalInputCustomer']//..//li")).click();
+            driver.findElement(By.id("previewModalInputCustomer")).clear();
+            driver.findElement(By.id("previewModalInputCustomer")).sendKeys(customerSample);
+            Thread.sleep(1000);
+            driver.findElement(By.id("previewModalInputCustomer")).click();
+            driver.findElement(By.xpath("//*[@id='previewModalInputCustomer']//..//li")).click();
 
         Thread.sleep(1000);
 
@@ -93,9 +94,20 @@ public class Preview extends BaseClass
         {
             reporter.reportLogFailWithScreenshot("Generate PDF button not displayed");
         }
-
         Thread.sleep(5000);
-       File pdfFileName = FileManager.getPDFFile();
+
+        FileManager.copyFile(MainConfig.properties.getProperty("PDF_PATH"), keepRefer.get("TestCaseID")+"_"+lang);
+
+
+    }
+
+    public String validatePDF(String message,String lang) throws InterruptedException, IOException
+    {
+        String status = "Fail";
+        PDFUtil pdfUtil = new PDFUtil();
+
+        Thread.sleep(3000);
+       File pdfFileName = new File(MainConfig.properties.getProperty("Bill_PATH") + keepRefer.get("TestCaseID")+"_"+lang+".pdf");
 
         HashMap<String,Object> chromePrefs = new HashMap<>();
         chromePrefs.put("plugins.always_open_pdf_externally",false);
@@ -112,27 +124,43 @@ public class Preview extends BaseClass
 
        driver.get("file://"+pdfFileName.getAbsolutePath());
 
-       Thread.sleep(5000);
+       Thread.sleep(2000);
 
       int totalPages = pdfUtil.getPageCount(pdfFileName.getAbsolutePath());
 
-        try {
-            String content = pdfUtil.getText(pdfFileName.getAbsolutePath());
+            try {
+                String content = pdfUtil.getText(pdfFileName.getAbsolutePath());
+                String newmsg = message;
+                String[] variableArr = StringUtils.substringsBetween(message, "{{", "}}");
+                for(String var1:variableArr)
+                {
+                    newmsg = newmsg.replace("{{"+var1+"}}","");
+                }
 
-            if(content.contains((keepRefer.get("MESSAGE_TEXT_EN")).substring(0,keepRefer.get("MESSAGE_TEXT_EN").indexOf("{{"))))
-            {
-                reporter.reportLogPassWithScreenshot("Message present in PDF Bill");
-                status = "Pass";
-            }
-            else
-            {
-                reporter.reportLogFailWithScreenshot("Message Not Present in PDF bill");
-                status = "Fail";
+                if(lang.contains("NEG"))
+                {
+                    if (!content.contains(newmsg)) {
+                        reporter.reportLogPassWithScreenshot("Message not present in PDF Bill");
+                        status = "Pass";
+                    } else {
+                        reporter.reportLogFailWithScreenshot("Message Present in PDF bill");
+                        status = "Fail";
+                    }
+                }
+                else {
+                    if (content.contains(newmsg)) {
+                        reporter.reportLogPassWithScreenshot("Message present in PDF Bill");
+                        status = "Pass";
+                    } else {
+                        reporter.reportLogFailWithScreenshot("Message Not Present in PDF bill");
+                        status = "Fail";
+                    }
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         return status;
 

@@ -35,6 +35,8 @@ public class LiveAreas extends BaseClass {
     public String okButtonXpath = "//button[@class = 'add-rule-modal-footer-add ng-binding']";
     public String closeButtonXpath = "//*[contains(text(),'Close')]";
     public String levelValue;
+    public String deleteRule= "//td[@class='icon-action bb-grid-cell-0-6 bb-grid-cell-callback']/parent::*//i[@class='delete']";
+    public String deleteConfirm = "//div[@class='modal-footer bb-btn-group ng-scope']//*[contains(text(),'Delete')]";
     public String levelXpath = "//select[@id='bb-te-decision-editor-level-select']";
     public String levelType;
     public String levelTypeXpath = "//select[@id = 'bb-te-live-area-editor-options-select']";
@@ -43,7 +45,7 @@ public class LiveAreas extends BaseClass {
 
         try {
             driver.findElement(By.xpath(liveAreasXpath)).click();
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             reporter.reportLogPassWithScreenshot("Live Areas Page is Displayed");
             SearchLiveArea();
             AddRule();
@@ -80,7 +82,7 @@ public class LiveAreas extends BaseClass {
         reporter.reportLogPassWithScreenshot("Selected Live Area is Displayed");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[contains(text(),'"+ liveAreaName +"')]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         reporter.reportLogPassWithScreenshot("Selected Live Area is Ready to Edit");
         Thread.sleep(2000);
         levelType = keepRefer.get("LEVEL_TYPE");
@@ -96,6 +98,14 @@ public class LiveAreas extends BaseClass {
         Thread.sleep(1000);
     }
     public void AddRule() throws InterruptedException {
+        //delete Rule if exists
+       /* Boolean deleteButtonExists = driver.findElements(By.xpath(deleteRule)).size() != 0;
+        if (deleteButtonExists.equals(true)) {
+            driver.findElement(By.xpath(deleteRule)).click();
+            driver.findElement(By.xpath(deleteConfirm)).click();
+            Thread.sleep(2000);
+        }*/
+
         // Add Rule
         driver.findElement(By.xpath(addRuleXpath)).click();
         Thread.sleep(1000);

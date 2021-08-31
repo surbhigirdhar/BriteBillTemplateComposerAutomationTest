@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 
@@ -82,11 +83,12 @@ public class Messages extends BaseClass {
 
 //Type Message in the Textbox
         messageText = keepRefer.get("MESSAGE_TEXT");
+
         Thread.sleep(1000);
         driver.switchTo().frame(0);
         WebElement text = driver.findElement(By.xpath(messageTextXpath));
-        text.sendKeys(messageText);
-        Thread.sleep(5000);
+        text.sendKeys(messageText.getBytes(StandardCharsets.UTF_8).toString());
+        Thread.sleep(1000);
 
    /*    //Inserting the message variable
 

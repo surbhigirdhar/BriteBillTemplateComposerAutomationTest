@@ -46,6 +46,7 @@ public class BaseClass {
 		new MainConfig();
 
 		MainConfig.properties.setProperty("PDF_PATH",System.getProperty("user.dir")+MainConfig.properties.getProperty("PDF_PATH"));
+		MainConfig.properties.setProperty("Bill_PATH",System.getProperty("user.dir") + "//Bills//");
 
 		reporter = new ExtentTestManager();
 		commonUtils = new CommonUtils();

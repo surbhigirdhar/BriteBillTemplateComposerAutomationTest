@@ -30,7 +30,25 @@ public class FileManager
 
 	}
 
-	public static File  getPDFFile()
+	public static void copyFile(String pathDir, String TestCaseID) throws IOException
+	{
+		File dir = new File(pathDir);
+		File[] allFiles = dir.listFiles();
+
+		for(File filename : allFiles)
+		{
+			//filename.renameTo(System.getProperty("user.dir") + "//Bills//" + TestCaseID + ".pdf");
+			Path srcPath = Paths.get(filename.toURI());
+			Path destPath = Paths.get(MainConfig.properties.getProperty("Bill_PATH") + TestCaseID + ".pdf");
+			Files.deleteIfExists(destPath);
+			Files.copy(srcPath,destPath);
+			Files.deleteIfExists(srcPath);
+
+		}
+
+	}
+
+		public static File  getPDFFile()
 	{
 		File dir = new File (MainConfig.properties.getProperty("PDF_PATH"));
 		File[] allFile = dir.listFiles();

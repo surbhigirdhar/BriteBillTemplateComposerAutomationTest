@@ -12,53 +12,81 @@
 	<parameter name="Env" value="QA5" />
 	<parameter name="CalendarName" value="BillModernization_Phase2_R1021_Tests.csv" />
 
-
-	<test name="TC031_V21_Validate Message for CYCLE_CODE for CBU account" >
+<!--	<test name="TC001_V21_Validate Message for ACCOUNT_SUBTYPE for CBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC031_V21_Validate Message for CYCLE_CODE for CBU account"></parameter>
+			<parameter name="TestCaseID" value="TC001_V21_Validate Message for ACCOUNT_SUBTYPE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC003_V21_Validate Message for BILLING_POSTAL_CODE for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC003_V21_Validate Message for BILLING_POSTAL_CODE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC005_V21_Validate Message for ACCOUNT_CREDIT_CLASS for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC005_V21_Validate Message for ACCOUNT_CREDIT_CLASS for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+	<test name="TC011_V21_Validate Message for BILL_FREQUENCY for CBU account" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC011_V21_Validate Message for BILL_FREQUENCY for CBU account"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
 
-	<test name="TC032_V21_Validate Message for CYCLE_CODE for EBU account" >
+	<!--<test name="TC031_V21_Validate Message for CYCLE_CODE for CBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC032_V21_Validate Message for CYCLE_CODE for EBU account"></parameter>
+			<parameter name="TestCaseID" value="TC031_V21_Validate Message for CYCLE_CODE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+
+	<!--<test name="TC032_V21_Validate Message for CYCLE_CODE for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC032_V21_Validate Message for CYCLE_CODE for EBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
 
-	<test name="TC033_V21_Validate Message for CYCLE_YEAR for CBU account" >
+	<test name="TC033_V21_Validate Message for CYCLE_YEAR for CBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC033_V21_Validate Message for CYCLE_YEAR for CBU account"></parameter>
+			<parameter name="TestCaseID" value="TC033_V21_Validate Message for CYCLE_YEAR for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC034_V21_Validate Message for CYCLE_YEAR for CBU account" >
+	<test name="TC034_V21_Validate Message for CYCLE_YEAR for EBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC034_V21_Validate Message for CYCLE_YEAR for CBU account"></parameter>
+			<parameter name="TestCaseID" value="TC034_V21_Validate Message for CYCLE_YEAR for EBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
+	</test>-->
 
-	<test name="TC035_V21_Validate Message for CYCLE_MONTH for CBU account" >
+	<!--<test name="TC035_V21_Validate Message for CYCLE_MONTH for CBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC035_V21_Validate Message for CYCLE_MONTH for CBU account"></parameter>
+			<parameter name="TestCaseID" value="TC035_V21_Validate Message for CYCLE_MONTH for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
+	</test>-->
 
-	<test name="TC036_V21_Validate Message for CYCLE_MONTH for EBU account" >
+	<!--<test name="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC036_V21_Validate Message for CYCLE_MONTH for EBU account"></parameter>
+			<parameter name="TestCaseID" value="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
+	</test>-->
 
 
 
