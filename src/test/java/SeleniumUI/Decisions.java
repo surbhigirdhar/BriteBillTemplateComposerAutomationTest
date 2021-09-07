@@ -54,6 +54,7 @@ public class Decisions extends BaseClass {
 
     public void Decision() {
         try {
+            Thread.sleep(1000);
             driver.findElement(By.xpath(decisionsXpath)).click();
             Thread.sleep(1000);
             reporter.reportLogPassWithScreenshot("Decisions Page is Displayed");

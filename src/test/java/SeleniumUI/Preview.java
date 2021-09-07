@@ -81,7 +81,7 @@ public class Preview extends BaseClass
             driver.findElement(By.id("previewModalInputCustomer")).click();
             driver.findElement(By.xpath("//*[@id='previewModalInputCustomer']//..//li")).click();
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         WebElement PDFButton = driver.findElement(By.xpath("//button[contains(text(),'Generate PDF')]"));
 
@@ -131,10 +131,13 @@ public class Preview extends BaseClass
             try {
                 String content = pdfUtil.getText(pdfFileName.getAbsolutePath());
                 String newmsg = message;
-                String[] variableArr = StringUtils.substringsBetween(message, "{{", "}}");
-                for(String var1:variableArr)
-                {
-                    newmsg = newmsg.replace("{{"+var1+"}}","");
+                if (newmsg.contains("{{")) {
+
+                    String[] variableArr = StringUtils.substringsBetween(message, "{{", "}}");
+
+                    for (String var1 : variableArr) {
+                        newmsg = newmsg.replace("{{" + var1 + "}}", "");
+                    }
                 }
 
                 if(lang.contains("NEG"))

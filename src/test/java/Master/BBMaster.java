@@ -27,6 +27,7 @@ public class BBMaster extends BaseClass {
     Decisions dc = new Decisions();
     LiveAreas la = new LiveAreas();
     Preview pw = new Preview();
+    PreviewDigital dig = new PreviewDigital();
 
 
     @Parameters({"Env", "CalendarName", "TestCaseID"})
@@ -37,7 +38,7 @@ public class BBMaster extends BaseClass {
 
 
         keepRefer = csvHandler.readKeepRefer(calendarName, testCaseID);
-        keepRefer.put("TestCaseID",testCaseID);
+        keepRefer.put("TestCaseID", testCaseID);
         csvHandler.ReadEnvironmentCalendar(env);
         EnvironmentConf.SetEnvironmentDetails(env);
         String status = "Pass";
@@ -65,20 +66,19 @@ public class BBMaster extends BaseClass {
         tc.Projects();
         tc.SearchProject();
 
-        msg.Message();
+        String Message_name_gen = keepRefer.get("MESSAGE_NAME_GEN");
+        String invoiceType = keepRefer.get("INVOICE_TYPE");
+        keepRefer.put("INVOICE", invoiceType);
+        keepRefer.put("MESSAGE_STYLE", keepRefer.get("MSG_STYLE_" + invoiceType.toUpperCase()));
 
-        String[] invoiceTypeArr = keepRefer.get("INVOICE_TYPE").split(";"); //Paper or Digital
-
-        for (String invoiceType : invoiceTypeArr) {
-            keepRefer.put("INVOICE", invoiceType);
+        if (Message_name_gen.isEmpty()) {
+            msg.Message();
             keepRefer.put("MESSAGE_NAME", keepRefer.get("MESSAGE_ID") + "" + keepRefer.get("INVOICE") + CommonUtils.generateRandomDigits(4));
-            keepRefer.put("MESSAGE_STYLE", keepRefer.get("MSG_STYLE_" + invoiceType.toUpperCase()));
-
-            //Create new Message
 
             if (!keepRefer.get("MESSAGE_TEXT_EN").isEmpty()) {
                 keepRefer.put("MESSAGE_TEXT", keepRefer.get("MESSAGE_TEXT_EN"));
                 keepRefer.put("LANGUAGE", "English");
+
                 msg.NewMessage();
             }
 
@@ -90,13 +90,16 @@ public class BBMaster extends BaseClass {
 
             dc.Decision();
             la.LiveArea();
-            pw.launchPreview();
 
+        }
+
+            pw.launchPreview();
+        if (keepRefer.get("INVOICE_TYPE").equalsIgnoreCase("Paper")) {
             if (!keepRefer.get("CUSTOMER_SAMPLE_EN").isEmpty()) {
-                pw.previewPDF(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE"), "EN");// this will download pdf
+                pw.previewPDF(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE_EN"), "EN");// this will download pdf
             }
             if (!keepRefer.get("CUSTOMER_SAMPLE_FR").isEmpty()) {
-                pw.previewPDF(keepRefer.get("CUSTOMER_SAMPLE_FR"), keepRefer.get("DATA_SAMPLE"), "FR");
+                pw.previewPDF(keepRefer.get("CUSTOMER_SAMPLE_FR"), keepRefer.get("DATA_SAMPLE_FR"), "FR");
             }
             if (!keepRefer.get("DATA_SAMPLE_NEG").isEmpty()) {
                 pw.previewPDF(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE_NEG"), "NEG");
@@ -104,21 +107,43 @@ public class BBMaster extends BaseClass {
 
 
             if (!keepRefer.get("MESSAGE_TEXT_EN").isEmpty()) {
-                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_EN"),"EN");
+                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_EN"), "EN");
             }
 
             if (!keepRefer.get("MESSAGE_TEXT_FR").isEmpty()) {
-                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_FR"),"FR");
+                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_FR"), "FR");
             }
             if (!keepRefer.get("MESSAGE_TEXT_EN").isEmpty()) {
-                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_EN"),"NEG");
+                status = pw.validatePDF(keepRefer.get("MESSAGE_TEXT_EN"), "NEG");
             }
 
         }
-        return status;
 
+        if (keepRefer.get("INVOICE_TYPE").equalsIgnoreCase("Digital")) {
+            if (!keepRefer.get("CUSTOMER_SAMPLE_EN").isEmpty()) {
+                dig.previewDigitalBill(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE_EN"), "EN");// this will download pdf
+                //status = dig.validateDigitalBill(keepRefer.get("MESSAGE_TEXT_EN"), "EN");
+                status = "Pass";
+            }
+            if (!keepRefer.get("CUSTOMER_SAMPLE_FR").isEmpty()) {
+                dig.previewDigitalBill(keepRefer.get("CUSTOMER_SAMPLE_FR"), keepRefer.get("DATA_SAMPLE_FR"), "FR");
+               // status = dig.validateDigitalBill(keepRefer.get("MESSAGE_TEXT_FR"), "FR");
+                status = "Pass";
+            }
+            if (!keepRefer.get("DATA_SAMPLE_NEG").isEmpty()) {
+                dig.previewDigitalBill(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE_NEG"), "NEG");
+               // status = dig.validateDigitalBill(keepRefer.get("MESSAGE_TEXT_EN"), "NEG");
+                status = "Pass";
+            }
+
+        }
+
+        return status;
     }
 
-
-
 }
+
+
+
+
+

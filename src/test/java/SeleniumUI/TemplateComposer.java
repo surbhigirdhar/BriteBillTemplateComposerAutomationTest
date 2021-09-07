@@ -21,7 +21,7 @@ public class TemplateComposer extends BaseClass {
 
 
     public void AppSelection() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         Select selectApp = new Select(driver.findElement(By.xpath("//select[@ng-model = 'selectedApp']")));
         selectApp.selectByVisibleText("Template Composer");
         Thread.sleep(2000);

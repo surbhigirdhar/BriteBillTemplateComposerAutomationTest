@@ -3,6 +3,7 @@ package SeleniumUI;
 import base.BaseClass;
 import io.cucumber.java.eo.Se;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -87,8 +88,11 @@ public class Messages extends BaseClass {
         Thread.sleep(1000);
         driver.switchTo().frame(0);
         WebElement text = driver.findElement(By.xpath(messageTextXpath));
-        text.sendKeys(messageText.getBytes(StandardCharsets.UTF_8).toString());
+        text.sendKeys(messageText);
         Thread.sleep(1000);
+        text.sendKeys(Keys.CONTROL, "a");
+        Thread.sleep(1000);
+
 
    /*    //Inserting the message variable
 
@@ -103,6 +107,7 @@ public class Messages extends BaseClass {
             Thread.sleep(2000);
     */
         driver.switchTo().parentFrame();
+
         fontType = keepRefer.get("MESSAGE_STYLE");
 
         driver.findElement(By.xpath(fontXpath)).click();

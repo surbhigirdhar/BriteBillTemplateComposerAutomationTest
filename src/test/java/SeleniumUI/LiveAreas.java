@@ -67,11 +67,11 @@ public class LiveAreas extends BaseClass {
 
         if(keepRefer.get("INVOICE").equalsIgnoreCase("Paper"))
         {
-            liveAreaName = MainConfig.properties.getProperty("LIVE_AREA_PAPER");
+            liveAreaName = keepRefer.get("LIVE_AREA_PAPER");
         }
         else
         {
-            liveAreaName = MainConfig.properties.getProperty("LIVE_AREA_DIGITAL");
+            liveAreaName = keepRefer.get("LIVE_AREA_DIGITAL");
         }
 
         driver.findElement(By.xpath(searchLiveAreaXpath)).sendKeys(liveAreaName);
