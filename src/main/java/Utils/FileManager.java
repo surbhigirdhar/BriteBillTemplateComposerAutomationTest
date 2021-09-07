@@ -1,4 +1,7 @@
 package Utils;
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import Config.*;
 import java.io.IOException;
@@ -196,23 +199,13 @@ public class FileManager
 		
 	}
 	
-	public String replaceTagInXMLFile(String originalFile, HashMap<String, String> keepRefer) 
+	public String replaceTagInXMLFile(String originalFile, HashMap<String, String> keepRefer)
 	{
-	//	String tempFile = originalFile.split("\\.")[0]+ "_" +( new SimpleDateFormat("YYYYMMddhhmmss").format(new Date())).toString() +"_"+ CommonUtils.generateRandomDigits(4) +".xml";
-		//replace tag
-		String data = ""; 
+		String data = "";
 		try 
 		{ 
-	/*		String tempFilePath = System.getProperty("user.dir") + MainConfig.properties.getProperty("APP_PATH")
-			+ "/"+ MainConfig.properties.getProperty("RELEASE") +MainConfig.properties.getProperty("SOAP_REQUEST_TEMPORARY_FILES_PATH");
-			//create temp file
-			Path tempFilepath = Paths.get(tempFilePath , tempFile);
 
-			Files.deleteIfExists(tempFilepath);
-			
-			Files.createFile(tempFilepath);
-	*/
-			String templateFilePath = System.getProperty("user.dir") + MainConfig.properties.getProperty("APP_PATH") 
+			String templateFilePath = System.getProperty("user.dir") + MainConfig.properties.getProperty("APP_PATH")
 			+ "/"+ MainConfig.properties.getProperty("RELEASE") + MainConfig.properties.getProperty("SOAP_REQUEST_TEMPLATE_PATH");
 			
 			data = new String(Files.readAllBytes(Paths.get(templateFilePath ,originalFile))); 
@@ -228,7 +221,7 @@ public class FileManager
 				for(String params : tagArr)
 				{
 					String keepReferVal = keepRefer.get(params);
-					
+
 					/*
 					 * if(params.contains("=")) { params="#"+keepReferVal.split("=")[0]+"#";
 					 * //<<guid>> keepReferVal = keepReferVal.split("=")[1]; //42342 }
@@ -249,6 +242,31 @@ public class FileManager
 		return data;
 		
 	}
+
+	public static String editDataSample(String originalFile, String tag)
+	{
+		String data = "";
+		try
+		{
+
+			String templateFilePath = System.getProperty("user.dir") + MainConfig.properties.getProperty("RESOURCE_PATH")+
+					MainConfig.properties.getProperty("RELEASE") + MainConfig.properties.getProperty("DS_PATH") ;
+
+			data = new String(Files.readAllBytes(Paths.get(templateFilePath ,originalFile)));
+
+
+			data = data.replaceAll("#FACTS#", tag);
+
+
+		} catch (Exception e)
+		{
+			System.out.println(e);
+		}
+
+		return data;
+
+	}
+
 	
 	public static boolean ifFileExists(String filePath)
 	{
