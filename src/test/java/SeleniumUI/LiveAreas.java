@@ -92,7 +92,7 @@ public class LiveAreas extends BaseClass {
         levelValue = keepRefer.get("LEVEL");
         //     Select level = new Select(driver.findElement(By.xpath(levelXpath)));
         //   level.selectByVisibleText(levelValue);
-        Thread.sleep(1000);
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("scroll(0,800)");
         Thread.sleep(1000);
