@@ -28,14 +28,18 @@ public class BBMaster extends BaseClass {
     LiveAreas la = new LiveAreas();
     Preview pw = new Preview();
     PreviewDigital dig = new PreviewDigital();
+    DataSample dataSample = new DataSample();
 
 
-    @Parameters({"Env", "CalendarName", "TestCaseID"})
+    @Parameters({"Env", "CalendarName", "TestCaseID","Release"})
     @Test
-    public void executeTest(String env, String calendarName, String testCaseID) throws Exception {
-        calendarName = System.getProperty("user.dir") + "/resources/" + calendarName;
+    public void executeTest(String env, String calendarName, String testCaseID, String Release) throws Exception
+    {
+
+        calendarName = System.getProperty("user.dir") + "/resources/"+Release+"/" + calendarName;
         EnvironmentConf.ENVIRONMENT_NAME = env;
 
+        MainConfig.properties.setProperty("RELEASE",Release+"/");
 
         keepRefer = csvHandler.readKeepRefer(calendarName, testCaseID);
         keepRefer.put("TestCaseID", testCaseID);
@@ -66,7 +70,12 @@ public class BBMaster extends BaseClass {
         tc.Projects();
         tc.SearchProject();
 
-        String Message_name_gen = keepRefer.get("MESSAGE_NAME_GEN");
+        dataSample.OpenDataSamplePage();
+        dataSample.SearchDataSample();
+        dataSample.updateDataSample();
+
+
+  /*      String Message_name_gen = keepRefer.get("MESSAGE_NAME_GEN");
         String invoiceType = keepRefer.get("INVOICE_TYPE");
         keepRefer.put("INVOICE", invoiceType);
         keepRefer.put("MESSAGE_STYLE", keepRefer.get("MSG_STYLE_" + invoiceType.toUpperCase()));
@@ -137,7 +146,7 @@ public class BBMaster extends BaseClass {
             }
 
         }
-
+*/
         return status;
     }
 

@@ -9,17 +9,18 @@
 		<listener class-name="listeners.TestListener" />
 	</listeners>
 
-	<parameter name="Env" value="Sandbox" />
+	<parameter name="Env" value="QA5" />
 	<parameter name="CalendarName" value="BillModernization_Phase2_R1021_Tests.csv" />
+	<parameter name="Release" value="R1021"/>
 
-	<!--<test name="TC001_V21_Validate Message for ACCOUNT_SUBTYPE for CBU account_Paper" >
+	<test name="TC001_V21_Validate Message for ACCOUNT_SUBTYPE for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC001_V21_Validate Message for ACCOUNT_SUBTYPE for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC001_V21_Validate Message for ACCOUNT_SUBTYPE for CBU account_Digital" >
+	<!--<test name="TC001_V21_Validate Message for ACCOUNT_SUBTYPE for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC001_V21_Validate Message for ACCOUNT_SUBTYPE for CBU account_Digital"></parameter>
@@ -183,15 +184,15 @@
 			<parameter name="TestCaseID" value="TC035_V21_Validate Message for CYCLE_MONTH for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-
-	<test name="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Digital" >
-
-		<classes>
-			<parameter name="TestCaseID" value="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Digital"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
 	</test>-->
+
+<!--	<test name="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Digital" >-->
+
+<!--		<classes>-->
+<!--			<parameter name="TestCaseID" value="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Digital"></parameter>-->
+<!--			<class name="Master.BBMaster"></class>-->
+<!--		</classes>-->
+<!--	</test>-->
 	<!--<test name="TC111_V21_Validate Message for ACCOUNT_TYPE for CBU account_Paper" >
 
 		<classes>
@@ -205,7 +206,7 @@
 			<parameter name="TestCaseID" value="TC113_V21_Validate Message for ACCOUNT_SUBTYPE for CBU Account"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
+	</test>
 	<test name="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Paper" >
 
 		<classes>
@@ -213,14 +214,7 @@
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Digital" >
-
-		<classes>
-			<parameter name="TestCaseID" value="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Digital"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
-	</test>
-	<!--<test name="TC0117_V21_Validate Message for  CHANNEL for CBU account_Paper" >
+	<test name="TC0117_V21_Validate Message for  CHANNEL for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC0117_V21_Validate Message for  CHANNEL for CBU account_Paper"></parameter>
