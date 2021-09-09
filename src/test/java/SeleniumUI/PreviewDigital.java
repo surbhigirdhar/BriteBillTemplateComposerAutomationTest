@@ -94,7 +94,7 @@ public class PreviewDigital extends BaseClass {
             js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
             driver.switchTo().frame(0);
             js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-
+            Thread.sleep(2000);
             String[] msgArr = newmsg.split("'");
 
             for (String msg : msgArr) {

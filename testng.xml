@@ -125,6 +125,20 @@
 			<parameter name="TestCaseID" value="TC017_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
+	</test>
+	<test name="TC018_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC018_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC018_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC018_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
 	</test>-->
 
 	<!--<test name="TC027_V21_Validate Message for UTC_IND for CBU account_Digital" >
@@ -147,18 +161,32 @@
 			<parameter name="TestCaseID" value="TC028_V21_Validate Message for UTC_IND for EBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
+	</test>
 	<test name="TC028_V21_Validate Message for UTC_IND for EBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC028_V21_Validate Message for UTC_IND for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
+	</test>-->
 	<!--<test name="TC029_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC029_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for CBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC030_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC030_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC030_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC030_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>-->
@@ -320,6 +348,20 @@
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>-->
+	<test name="TC044_V21_Validate Message for SPECIAL_NEED_CUST for EBU accont_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC044_V21_Validate Message for SPECIAL_NEED_CUST for EBU accont_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC044_V21_Validate Message for SPECIAL_NEED_CUST for EBU accont_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC044_V21_Validate Message for SPECIAL_NEED_CUST for EBU accont_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
 	<!--<test name="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Paper" >
 
 		<classes>

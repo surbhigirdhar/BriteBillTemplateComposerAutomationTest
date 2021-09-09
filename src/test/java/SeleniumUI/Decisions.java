@@ -102,6 +102,7 @@ public class Decisions extends BaseClass {
 
                 }
             } else {
+
                 WebElement element = driver.findElement(By.xpath(ruleOperatorValue1));
                 Select selectOperation = new Select(element);
                 selectOperation.selectByVisibleText(decisionOperation);
