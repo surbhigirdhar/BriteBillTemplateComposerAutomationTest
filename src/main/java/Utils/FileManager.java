@@ -254,7 +254,6 @@ public class FileManager
 
 			data = new String(Files.readAllBytes(Paths.get(templateFilePath ,originalFile)));
 
-
 			data = data.replaceAll("#FACTS#", tag);
 
 

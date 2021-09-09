@@ -33,8 +33,9 @@ public class DataSample extends BaseClass
     public void SearchDataSample() throws InterruptedException
     {
         runForDataSample(keepRefer.get("DATA_SAMPLE_EN"),"ENG");
-        Thread.sleep(5000);
+        Thread.sleep(1000);
         runForDataSample(keepRefer.get("DATA_SAMPLE_FR"),"FR");
+        Thread.sleep(2000);
 
     }
 
@@ -45,9 +46,9 @@ public class DataSample extends BaseClass
 
         driver.findElement(By.xpath(searchTxtBox)).clear();
         driver.findElement(By.xpath(searchTxtBox)).sendKeys(dsName);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         driver.findElement(By.xpath(buttonGo)).click();
-        Thread.sleep(4000);
+        Thread.sleep(1000);
         WebElement searchResult = driver.findElement(By.xpath("//span[contains(text(),'"+dsName+"')]"));
 
         if(searchResult.isDisplayed()) {
@@ -56,9 +57,9 @@ public class DataSample extends BaseClass
         }
         else
         {
-            reporter.reportLogFailWithScreenshot("Search Datasample not found");
+            reporter.reportLogFailWithScreenshot("Search Data sample not found");
         }
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
         //if page load
         if(driver.findElement(By.xpath(saveButton)).isDisplayed())
@@ -81,7 +82,7 @@ public class DataSample extends BaseClass
                 }
             }
             //make template file name
-            String fileName = "DS_" + keepRefer.get("BUSINESS_UNIT").toUpperCase() + "_"+lang;
+            String fileName = "DS_" + keepRefer.get("FACT_LEVEL") + "_" + keepRefer.get("BUSINESS_UNIT").toUpperCase() + "_"+lang;
             dataSampleData = FileManager.editDataSample(fileName, factsTags);
 
             StringSelection st = new StringSelection(dataSampleData);
@@ -94,6 +95,7 @@ public class DataSample extends BaseClass
             txtarea.sendKeys(Keys.CONTROL+"v");
             Thread.sleep(5000);
             driver.findElement(By.xpath(saveButton)).click();
+
             reporter.reportLogPassWithScreenshot("Data Sample updated");
         }
 

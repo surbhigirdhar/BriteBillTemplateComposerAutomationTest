@@ -37,6 +37,7 @@ public class Preview extends BaseClass
 {
     public void launchPreview() throws InterruptedException {
         //click preview button
+
         driver.findElement(By.xpath("//*[contains(text(),'Preview')]")).click();
         Thread.sleep(1000);
         reporter.reportLogPassWithScreenshot("Preview Page is Displayed");
@@ -124,7 +125,7 @@ public class Preview extends BaseClass
 
        driver.get("file://"+pdfFileName.getAbsolutePath());
 
-       Thread.sleep(2000);
+       Thread.sleep(5000);
 
       int totalPages = pdfUtil.getPageCount(pdfFileName.getAbsolutePath());
 

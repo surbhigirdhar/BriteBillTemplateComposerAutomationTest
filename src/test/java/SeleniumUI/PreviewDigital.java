@@ -48,20 +48,6 @@ public class PreviewDigital extends BaseClass {
         driver.findElement(By.xpath("//button[@ng-click='vm.getHTML()']")).click();
         Thread.sleep(3000);
 
-
-        /* ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
-        Thread.sleep(1000);
-        WebDriver bill = driver.switchTo().window(tabs.get(1));
-        Thread.sleep(1000);
-        reporter.reportLogPassWithScreenshot("Digital Bill");
-        driver.switchTo().frame(0);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("scroll(0,1000)");
-        Thread.sleep(2000);
-        reporter.reportLogPassWithScreenshot("Digital Bill");
-
-        bill.close();
-        driver.switchTo().window(tabs.get(0));*/
     }
 
     public String validateDigitalBill(String message,String lang) throws InterruptedException, IOException
@@ -88,40 +74,69 @@ public class PreviewDigital extends BaseClass {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("scroll(0,800)");
         Thread.sleep(1000);
-       WebElement viewMessage =  driver.findElement(By.xpath("//span[@class='messages-text text-link view-messages ng-binding']"));
+
+        WebElement viewMessage = null;
+
+        if (keepRefer.get("BUSINESS_UNIT").contentEquals("cbu")) {
+
+            viewMessage = driver.findElement(By.xpath("//span[@class='messages-text text-link view-messages ng-binding']"));
+        }
+        else
+        {
+            viewMessage = driver.findElement(By.xpath("(//a[@class='details-link ng-binding ng-isolate-scope'])[1]"));
+        }
+
         if (viewMessage.isDisplayed()) {
             viewMessage.click();
             Thread.sleep(2000);
-            tabs = new ArrayList<String> (driver.getWindowHandles());
+            tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+            driver.switchTo().frame(0);
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
-           // driver.switchTo().frame(0);
             String[] msgArr = newmsg.split("'");
 
             for (String msg : msgArr) {
                 String[] varArr = msg.split("#");
                 for (String validatemsg : varArr) {
-                    WebElement list = driver.findElement(By.xpath("//div[@class='bb-livearea-wrapper region-cbu rogers']/parent::*//*[contains(text(),'" + validatemsg.trim() + "')]"));
-                    //  List<WebElement> list = driver.findElements(By.xpath("//p[contains(text(),'" + msg + "')]"));
+                    List<WebElement> list = null;
 
-                    if (list.isDisplayed()) {
-                        reporter.reportLogPassWithScreenshot("Message present in Digital Bill1");
-                        status = "Pass";
+                    if (keepRefer.get("BUSINESS_UNIT").contentEquals("cbu")) {
+                        list = driver.findElements(By.xpath("//div[@class='margin-bottom-15']/..//*[contains(text(),'" + validatemsg.trim() + "')]"));
+                    }
+                    else {
+                        list = driver.findElements(By.xpath("//section[@ng-bind-html='message']//*[contains(text(),'" + validatemsg.trim() + "')]"));
+                    }
+                    if (lang.contains("NEG")) {
+
+                        if (list.size()==0) {
+
+                            reporter.reportLogPassWithScreenshot("Message Not present in Digital Bill1");
+                            status = "Pass";
+                        } else {
+                            reporter.reportLogFailWithScreenshot("Message Present in Digital bill");
+                            status = "Fail";
+                            break;
+                        }
                     } else {
-                        reporter.reportLogFailWithScreenshot("Message Not Present in Digital bill");
-                        status = "Fail";
-                        break;
+
+                        if (list.size()>0) {
+
+                            reporter.reportLogPassWithScreenshot("Message present in Digital Bill1");
+                            status = "Pass";
+                        } else {
+                            reporter.reportLogFailWithScreenshot("Message Not Present in Digital bill");
+                            status = "Fail";
+                            break;
+                        }
                     }
                 }
             }
         }
-        else if (!viewMessage.isDisplayed()) {
-                reporter.reportLogPassWithScreenshot("Message not present in Digital Bill1");
-                status = "Pass";
-            } else {
-                reporter.reportLogFailWithScreenshot("Message Present in Digital bill");
+        else  {
+                reporter.reportLogFailWithScreenshot("View Message is not available");
                 status = "Fail";
-
             }
 
         /* For other Digital Live Area validations
@@ -135,10 +150,10 @@ public class PreviewDigital extends BaseClass {
            if (lang.contains("NEG")) {
                //if (!content.contains(newmsg))
                if (list.size() == 0) {
-//                   driver.switchTo().frame(0);
-//                   JavascriptExecutor js = (JavascriptExecutor) driver;
-//                   js.executeScript("scroll(0,800)");
-//                   Thread.sleep(1000);
+                   driver.switchTo().frame(0);
+                   JavascriptExecutor js = (JavascriptExecutor) driver;
+                   js.executeScript("scroll(0,800)");
+                   Thread.sleep(1000);
                    reporter.reportLogPassWithScreenshot("Message not present in Digital Bill1");
                    status = "Pass";
                } else {
@@ -151,10 +166,10 @@ public class PreviewDigital extends BaseClass {
                //if (content.contains(newmsg))
                if (list.size() > 0) {
 
-//                   driver.switchTo().frame(0);
-//                   JavascriptExecutor js1 = (JavascriptExecutor) driver;
-//                   js1.executeScript("scroll(0,800)");
-//                   Thread.sleep(1000);
+                   driver.switchTo().frame(0);
+                   JavascriptExecutor js1 = (JavascriptExecutor) driver;
+                   js1.executeScript("scroll(0,800)");
+                   Thread.sleep(1000);
                    reporter.reportLogPassWithScreenshot("Message present in Digital Bill1");
                    status = "Pass";
                } else {

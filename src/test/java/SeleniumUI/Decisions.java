@@ -76,7 +76,7 @@ public class Decisions extends BaseClass {
         trueIfTextbox = keepRefer.get("TRUE_IF");
         driver.findElement(By.xpath(trueIfXpath)).sendKeys(trueIfTextbox);
         Thread.sleep(1000);
-        levelValue = keepRefer.get("LEVEL");
+        levelValue = keepRefer.get("FACT_LEVEL");
         Select level = new Select(driver.findElement(By.xpath(levelXpath)));
         level.selectByVisibleText(levelValue);
         Thread.sleep(1000);

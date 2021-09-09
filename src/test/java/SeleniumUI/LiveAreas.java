@@ -167,7 +167,7 @@ public class LiveAreas extends BaseClass {
 
         JavascriptExecutor jsUp = (JavascriptExecutor) driver;
         jsUp.executeScript("scroll(0,-800)");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         driver.findElement(By.xpath(closeButtonXpath)).click();
     }

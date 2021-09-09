@@ -26,6 +26,7 @@ public class Messages extends BaseClass {
     public String italicXpath = "//button[@title= 'Italic']";
     public String messageTextXpath = "//body[@id ='tinymce']";
     public String messageText;
+    public String factLevelXpath = "//*[contains(text(),'Fact Levels')]";
     public String messageVariable;
     public String messageVariableXpath = "//*[contains(text(),'Message variables')]";
     public String searchVariableXpath = "//input[@class = 'tox-textfield']";
@@ -62,6 +63,13 @@ public class Messages extends BaseClass {
         Select lang = new Select(element);
         lang.selectByVisibleText(keepRefer.get("LANGUAGE"));
         Thread.sleep(1000);
+
+        driver.findElement(By.xpath(factLevelXpath)).click();
+        Thread.sleep(1000);
+        String factLevelValue = keepRefer.get("FACT_LEVEL");
+        driver.findElement(By.xpath("//div[@title='"+ factLevelValue +"']")).click();
+
+
 
         driver.switchTo().frame(0);
         driver.findElement(By.xpath(messageTextXpath)).clear();

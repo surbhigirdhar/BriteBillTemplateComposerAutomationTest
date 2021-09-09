@@ -70,17 +70,12 @@ public class BBMaster extends BaseClass {
         tc.Projects();
         tc.SearchProject();
 
-        dataSample.OpenDataSamplePage();
-        dataSample.SearchDataSample();
-        dataSample.updateDataSample();
-
-
-  /*      String Message_name_gen = keepRefer.get("MESSAGE_NAME_GEN");
+        String Message_name_gen = keepRefer.get("MESSAGE_NAME_GEN");
         String invoiceType = keepRefer.get("INVOICE_TYPE");
         keepRefer.put("INVOICE", invoiceType);
         keepRefer.put("MESSAGE_STYLE", keepRefer.get("MSG_STYLE_" + invoiceType.toUpperCase()));
 
-        if (Message_name_gen.isEmpty()) {
+       if (Message_name_gen.isEmpty()) {
             msg.Message();
             keepRefer.put("MESSAGE_NAME", keepRefer.get("MESSAGE_ID") + "" + keepRefer.get("INVOICE") + CommonUtils.generateRandomDigits(4));
 
@@ -99,6 +94,9 @@ public class BBMaster extends BaseClass {
 
             dc.Decision();
             la.LiveArea();
+
+            dataSample.OpenDataSamplePage();
+            dataSample.SearchDataSample();
 
         }
 
@@ -132,21 +130,21 @@ public class BBMaster extends BaseClass {
             if (!keepRefer.get("CUSTOMER_SAMPLE_EN").isEmpty()) {
                 dig.previewDigitalBill(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE_EN"), "EN");// this will download pdf
                 status = dig.validateDigitalBill(keepRefer.get("MESSAGE_TEXT_EN"), "EN");
-               // status = "Pass";
+
             }
             if (!keepRefer.get("CUSTOMER_SAMPLE_FR").isEmpty()) {
                 dig.previewDigitalBill(keepRefer.get("CUSTOMER_SAMPLE_FR"), keepRefer.get("DATA_SAMPLE_FR"), "FR");
                 status = dig.validateDigitalBill(keepRefer.get("MESSAGE_TEXT_FR"), "FR");
-            //    status = "Pass";
+
             }
             if (!keepRefer.get("DATA_SAMPLE_NEG").isEmpty()) {
                 dig.previewDigitalBill(keepRefer.get("CUSTOMER_SAMPLE_EN"), keepRefer.get("DATA_SAMPLE_NEG"), "NEG");
                 status = dig.validateDigitalBill(keepRefer.get("MESSAGE_TEXT_EN"), "NEG");
-              //  status = "Pass";
+
             }
 
         }
-*/
+
         return status;
     }
 
