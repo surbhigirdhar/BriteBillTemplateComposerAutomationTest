@@ -97,7 +97,7 @@ public class Preview extends BaseClass
         }
         Thread.sleep(5000);
 
-        FileManager.copyFile(MainConfig.properties.getProperty("PDF_PATH"), keepRefer.get("TestCaseID")+"_"+lang);
+        FileManager.copyAllFiles(MainConfig.properties.getProperty("PDF_PATH"), MainConfig.properties.getProperty("Bill_PATH"),keepRefer.get("TestCaseID")+"_"+lang+".pdf");
 
 
     }

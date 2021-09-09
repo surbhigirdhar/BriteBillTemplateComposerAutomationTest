@@ -75,23 +75,23 @@ public class BBMaster extends BaseClass {
         keepRefer.put("INVOICE", invoiceType);
         keepRefer.put("MESSAGE_STYLE", keepRefer.get("MSG_STYLE_" + invoiceType.toUpperCase()));
 
-       if (Message_name_gen.isEmpty()) {
-            msg.Message();
+        msg.Message();
+       if (!msg.SearchMessage()) //if message not already created
+       {
+
             keepRefer.put("MESSAGE_NAME", keepRefer.get("MESSAGE_ID") + "" + keepRefer.get("INVOICE") + CommonUtils.generateRandomDigits(4));
 
             if (!keepRefer.get("MESSAGE_TEXT_EN").isEmpty()) {
                 keepRefer.put("MESSAGE_TEXT", keepRefer.get("MESSAGE_TEXT_EN"));
                 keepRefer.put("LANGUAGE", "English");
-
-                msg.NewMessage();
             }
 
             if (!keepRefer.get("MESSAGE_TEXT_FR").isEmpty()) {
                 keepRefer.put("MESSAGE_TEXT", keepRefer.get("MESSAGE_TEXT_FR"));
                 keepRefer.put("LANGUAGE", "French");
-                msg.NewMessage();
             }
 
+            msg.NewMessage();
             dc.Decision();
             la.LiveArea();
 

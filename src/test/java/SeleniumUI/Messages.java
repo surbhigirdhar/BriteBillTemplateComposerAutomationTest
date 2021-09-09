@@ -35,6 +35,9 @@ public class Messages extends BaseClass {
     public String fontXpath = "//*[contains(text(),'Paragraph')]";
     public String fontType;
 
+    public String searchTxtBox = "//div[@id='message-list']//input";
+    public String goButton = "//div[@id='message-list']//button[contains(text(),'Go')]";
+
     public void Message() {
         try {
             driver.findElement(By.xpath(messagesXpath)).click();
@@ -44,6 +47,26 @@ public class Messages extends BaseClass {
         catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean SearchMessage() throws InterruptedException
+    {
+        Thread.sleep(2000);
+
+        if(driver.findElement(By.xpath(searchTxtBox)).isDisplayed())
+        {
+            driver.findElement(By.xpath(searchTxtBox)).sendKeys(keepRefer.get("MESSAGE_ID"));
+            driver.findElement(By.xpath(goButton)).click();
+
+            WebElement searchResult = driver.findElement(By.xpath("//span[contains(text(),'"+keepRefer.get("MESSAGE_ID")+"')]"));
+
+            if(searchResult.isDisplayed()) {
+
+                reporter.reportLogPassWithScreenshot("Message already created");
+                return true;
+            }
+        }
+        return false;
     }
 
     public void NewMessage() throws InterruptedException {

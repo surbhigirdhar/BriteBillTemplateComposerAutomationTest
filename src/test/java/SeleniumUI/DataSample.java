@@ -73,9 +73,10 @@ public class DataSample extends BaseClass
             {
                 if (keepRefer.containsKey("DECISION" + i) ) {
                     if (!keepRefer.get("DECISION" + i).isEmpty()) {
+                        String decisionValue = getDecisionValue(keepRefer.get("DECISION_VALUE" + i), keepRefer.get("DECISION_OPERATION"+i));
                         factsTags = factsTags + "<FactValue>\n" +
                                 "      <name>" + keepRefer.get("DECISION" + i) + "</name>\n" +
-                                "      <valueString>" + keepRefer.get("DECISION_VALUE" + i) + "</valueString>\n" +
+                                "      <valueString>" + decisionValue + "</valueString>\n" +
                                 "    </FactValue>";
 
                     }
@@ -103,6 +104,22 @@ public class DataSample extends BaseClass
             reporter.reportLogFailWithScreenshot("Data Sample page not loaded");
             return;
         }
+    }
+
+    private String getDecisionValue(String decisionValue, String operator)
+    {
+        String dVal = "";
+
+        switch(operator)
+        {
+            case ">":
+                dVal = String.valueOf(Integer.parseInt(decisionValue)+1);
+                break;
+            default :
+                dVal = decisionValue;
+        }
+
+        return dVal;
     }
 
     public void updateDataSample()

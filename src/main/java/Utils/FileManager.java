@@ -33,19 +33,39 @@ public class FileManager
 
 	}
 
-	public static void copyFile(String pathDir, String TestCaseID) throws IOException
+	public static void copyFile(String sourcePathDir, String destPathDir, String fileNametoCopy) throws IOException
 	{
-		File dir = new File(pathDir);
+		File dir = new File(sourcePathDir);
 		File[] allFiles = dir.listFiles();
 
 		for(File filename : allFiles)
 		{
 			//filename.renameTo(System.getProperty("user.dir") + "//Bills//" + TestCaseID + ".pdf");
-			Path srcPath = Paths.get(filename.toURI());
-			Path destPath = Paths.get(MainConfig.properties.getProperty("Bill_PATH") + TestCaseID + ".pdf");
-			Files.deleteIfExists(destPath);
-			Files.copy(srcPath,destPath);
-			Files.deleteIfExists(srcPath);
+			if(filename.getName().contains(fileNametoCopy)) {
+				Path srcPath = Paths.get(filename.toURI());
+				Path destPath = Paths.get(destPathDir + fileNametoCopy);
+				Files.deleteIfExists(destPath);
+				Files.copy(srcPath, destPath);
+				Files.deleteIfExists(srcPath);
+			}
+		}
+
+	}
+
+	public static void copyAllFiles(String sourcePathDir, String destPathDir, String fileNametoCopy) throws IOException
+	{
+		File dir = new File(sourcePathDir);
+		File[] allFiles = dir.listFiles();
+
+		for(File filename : allFiles)
+		{
+			//filename.renameTo(System.getProperty("user.dir") + "//Bills//" + TestCaseID + ".pdf");
+
+				Path srcPath = Paths.get(filename.toURI());
+				Path destPath = Paths.get(destPathDir + fileNametoCopy);
+				Files.deleteIfExists(destPath);
+				Files.copy(srcPath, destPath);
+				Files.deleteIfExists(srcPath);
 
 		}
 
