@@ -3,6 +3,8 @@ package base;
 
 import Config.EnvironmentConf;
 import SeleniumUI.SeleniumConfig;
+import Utils.FileManager;
+import extentreport.ExtentManager;
 import extentreport.ExtentTestManager;
 import Utils.CSVHandler;
 import Utils.CommonUtils;
@@ -71,7 +73,15 @@ public class BaseClass {
 	{
 		driver.close();
 		driver.quit();
-		CSVHandler.createResultReport(keepRefer);
+
+		String  resultsDir= ExtentManager.absolutePathToReport;
+		try {
+			FileManager.copyFile( MainConfig.properties.getProperty("Bill_PATH"),resultsDir,keepRefer.get("TestCaseID")+"_EN.pdf");
+			FileManager.copyFile( MainConfig.properties.getProperty("Bill_PATH"),resultsDir,keepRefer.get("TestCaseID")+"_FR.pdf");
+			FileManager.copyFile( MainConfig.properties.getProperty("Bill_PATH"),resultsDir,keepRefer.get("TestCaseID")+"_NEG.pdf");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 		
