@@ -1,6 +1,8 @@
 package SeleniumUI;
 
+import Utils.CommonUtils;
 import Utils.FileManager;
+import Utils.FormFiller;
 import base.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -73,7 +75,8 @@ public class DataSample extends BaseClass
             {
                 if (keepRefer.containsKey("DECISION" + i) ) {
                     if (!keepRefer.get("DECISION" + i).isEmpty()) {
-                        String decisionValue = getDecisionValue(keepRefer.get("DECISION_VALUE" + i), keepRefer.get("DECISION_OPERATION"+i));
+                        //String decisionValue = getDecisionValue(keepRefer.get("DATASAMPLE_DECISION_VALUE" + i), keepRefer.get("DECISION_OPERATION"+i));
+                        String decisionValue = keepRefer.get("DATASAMPLE_DECISION_VALUE" + i);
                         factsTags = factsTags + "<FactValue>\n" +
                                 "      <name>" + keepRefer.get("DECISION" + i) + "</name>\n" +
                                 "      <valueString>" + decisionValue + "</valueString>\n" +
@@ -114,6 +117,12 @@ public class DataSample extends BaseClass
         {
             case ">":
                 dVal = String.valueOf(Integer.parseInt(decisionValue)+1);
+                break;
+            case "<":
+                dVal = String.valueOf(Integer.parseInt(decisionValue)-1);
+                break;
+            case "not equal to":
+                dVal = decisionValue + FormFiller.generateRandomName();
                 break;
             default :
                 dVal = decisionValue;

@@ -66,7 +66,7 @@ public class ExtentTestManager implements Reporter{
     public void reportLogWithScreenshot(String stepName) {
     	try {
             String testname = getTest().getTest().getName();
-    		getTest().log(LogStatus.INFO, stepName, getTest().addScreenCapture(ScreenCapture.getScreenShot(getDriver(),testname,stepName)));
+    		getTest().log(LogStatus.INFO, stepName, getTest().addScreenCapture(ScreenCapture.getScreenShot(getDriver(),testname,stepName.trim())));
     	}catch (UnhandledAlertException  alertExcpt) {
     		getTest().log(LogStatus.INFO, alertExcpt.toString());
     		alertExcpt.printStackTrace();

@@ -203,7 +203,7 @@ public class FormFiller {
     public static String generateRandomName (){
 	    int leftLimit = 97; // letter 'a'
 	    int rightLimit = 122; // letter 'z'
-	    int targetStringLength = 5;
+	    int targetStringLength = 3;
 	    Random random = new Random();
 	    StringBuilder buffer = new StringBuilder(targetStringLength);
 	    for (int count = 0; count < targetStringLength; count++) {

@@ -112,7 +112,7 @@ public class PreviewDigital extends BaseClass {
 
                         if (list.size()==0) {
 
-                            reporter.reportLogPassWithScreenshot("Message Not present in Digital Bill1");
+                            reporter.reportLogPassWithScreenshot("Message Not present in Digital Bill");
                             status = "Pass";
                         } else {
                             reporter.reportLogFailWithScreenshot("Message Present in Digital bill");
@@ -123,7 +123,7 @@ public class PreviewDigital extends BaseClass {
 
                         if (list.size()>0) {
 
-                            reporter.reportLogPassWithScreenshot("Message present in Digital Bill1");
+                            reporter.reportLogPassWithScreenshot("Message present in Digital Bill");
                             status = "Pass";
                         } else {
                             reporter.reportLogFailWithScreenshot("Message Not Present in Digital bill");
@@ -134,10 +134,16 @@ public class PreviewDigital extends BaseClass {
                 }
             }
         }
-        else  {
+        else if (lang.contains("NEG")) {
+            reporter.reportLogPassWithScreenshot("Message Not present in Digital Bill");
+            status = "Pass";
+        }
+        else
+            {
                 reporter.reportLogFailWithScreenshot("View Message is not available");
                 status = "Fail";
             }
+
 
         /* For other Digital Live Area validations
          driver.switchTo().frame(0);

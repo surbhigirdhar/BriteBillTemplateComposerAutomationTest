@@ -78,7 +78,7 @@ public class Preview extends BaseClass
         //select Customer Sample
             driver.findElement(By.id("previewModalInputCustomer")).clear();
             driver.findElement(By.id("previewModalInputCustomer")).sendKeys(customerSample);
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             driver.findElement(By.id("previewModalInputCustomer")).click();
             driver.findElement(By.xpath("//*[@id='previewModalInputCustomer']//..//li")).click();
 

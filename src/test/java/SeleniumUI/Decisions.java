@@ -26,32 +26,6 @@ public class Decisions extends BaseClass {
     public String trueIfTextbox;
     public String levelValue;
     public String aggregationModeValue;
-//
-//    public String decisionOperation;
-//    public String decisionValue;
-//    public Boolean exists;
-//
-//    // public String ruleOperator = "//*[text()=' equals ']";
-//    public String ruleOperator1Exist = "(//ul[@class='rules-list']//..//div[@class='rule-operator-container'])[1]//select[@class='form-control hide']";
-//    public String ruleOperator2Exist = "(//ul[@class='rules-list']//..//div[@class='rule-operator-container'])[2]//select[@class='form-control hide']";
-//    public String ruleOperatorValue1 = "(//ul[@class='rules-list']//..//div[@class='rule-operator-container'])[1]//select[@class='form-control ']";
-//    public String ruleOperatorValue2 = "(//ul[@class='rules-list']//..//div[@class='rule-operator-container'])[2]//select[@class='form-control ']";
-//    public String equalsTrueXpath1 = "(//ul[@class='rules-list']//..//input[@value='true'])[1]//parent::*";
-//    public String equalsFalseXpath1 = "(//ul[@class='rules-list']//..//input[@value='false'])[1]//parent::*";
-//    public String equalsTrueXpath2 = "(//ul[@class='rules-list']//..//input[@value='true'])[2]//parent::*";
-//    public String equalsFalseXpath2 = "(//ul[@class='rules-list']//..//input[@value='false'])[2]//parent::*";
-//
-//    //public String decisionValueXpath1 = "(//select[@class='form-control ']/parent::*//..//*[@class='rule-value-container'])[1]/input";
-//    //public String decisionValueXpath2 = "(//select[@class='form-control ']/parent::*//..//*[@class=''])[2]/input";
-//    public String decisionValueXpath2 = "(//ul[@class='rules-list']//..//div[@class='rule-value-container'])[2]//input[@class='form-control']";
-//    public String decisionValueXpath1 = "(//ul[@class='rules-list']//..//div[@class='rule-value-container'])[1]//input[@class='form-control']";
-//
-//    //public String queryBuilderXpath1 = "(//ul[@class='rules-list']//..//input[@type='text'])[1]//parent::*";
-//    //public String queryBuilderXpath2 = "(//ul[@class='rules-list']//..//input[@type='text'])[2]//parent::*";
-//    public String queryBuilderXpath1 = "(//ul[@class='rules-list']//..//div[@class='rule-filter-container'])[1]//input[@class='form-control']//parent::*";
-//    public String queryBuilderXpath2 = "(//ul[@class='rules-list']//..//div[@class='rule-filter-container'])[2]//input[@class='form-control']//parent::*";
-
-
 
     public void Decision() {
         try {
@@ -71,7 +45,7 @@ public class Decisions extends BaseClass {
         driver.findElement(By.xpath(newButtonXpath)).click();
         Thread.sleep(1000);
         decisionName = keepRefer.get("MESSAGE_NAME");
-//        decisionName = "Test123";
+        //decisionName = "Test";
         driver.findElement(By.xpath(nameXpath)).sendKeys(decisionName);
         Thread.sleep(1000);
         trueIfTextbox = keepRefer.get("TRUE_IF");
@@ -117,74 +91,7 @@ public class Decisions extends BaseClass {
             }
         }
 
- /*
 
-        if (!keepRefer.get("DECISION1").isEmpty()) {
-            keepRefer.put("DECISION", keepRefer.get("DECISION1"));
-            keepRefer.put("DECISION_OPERATION", keepRefer.get("DECISION_OPERATION1"));
-            keepRefer.put("DECISION_VALUE", keepRefer.get("DECISION_VALUE1"));
-            driver.findElement(By.xpath(queryBuilderXpath1)).click();
-            Thread.sleep(1000);
-            addRule();
-            Boolean exists = driver.findElements(By.xpath(ruleOperator1Exist)).size() != 0;
-            if (exists.equals(true)) {
-                if (decisionValue.equals("TRUE")) {
-                    driver.findElement(By.xpath(equalsTrueXpath1)).click();
-                } else {
-                    driver.findElement(By.xpath(equalsFalseXpath1)).click();
-
-                }
-            } else {
-
-                WebElement element = driver.findElement(By.xpath(ruleOperatorValue1));
-                Select selectOperation = new Select(element);
-                selectOperation.selectByVisibleText(decisionOperation);
-
-                driver.findElement(By.xpath(decisionValueXpath1)).sendKeys(decisionValue);
-                driver.findElement(By.xpath(decisionValueXpath1)).sendKeys(Keys.TAB);
-
-            }
-            Thread.sleep(2000);
-            reporter.reportLogPassWithScreenshot("New Decision Rule added successfully");
-        }
-//Adding Multiple Rules
-        if (!keepRefer.get("DECISION2").isEmpty()) {
-            keepRefer.put("DECISION", keepRefer.get("DECISION2"));
-            keepRefer.put("DECISION_OPERATION", keepRefer.get("DECISION_OPERATION2"));
-            keepRefer.put("DECISION_VALUE", keepRefer.get("DECISION_VALUE2"));
-            driver.findElement(By.xpath(addRuleXpath)).click();
-            Thread.sleep(1000);
-
-            if (!keepRefer.get("DECISION_OPERATOR").equals("OR")) {
-                driver.findElement(By.xpath("//*[text()=' AND                                     ']")).click();
-            } else {
-                driver.findElement(By.xpath("//*[text()=' OR                                     ']")).click();
-            }
-
-            driver.findElement(By.xpath(queryBuilderXpath2)).click();
-            Thread.sleep(1000);
-            addRule();
-            Boolean exists = driver.findElements(By.xpath(ruleOperator2Exist)).size() != 0;
-            if (exists.equals(true)) {
-                if (decisionValue.equals("TRUE")) {
-                    driver.findElement(By.xpath(equalsTrueXpath2)).click();
-                } else {
-                    driver.findElement(By.xpath(equalsFalseXpath2)).click();
-
-                }
-            } else {
-                WebElement element = driver.findElement(By.xpath(ruleOperatorValue2));
-                Select selectOperation = new Select(element);
-                selectOperation.selectByVisibleText(decisionOperation);
-
-                driver.findElement(By.xpath(decisionValueXpath2)).sendKeys(decisionValue);
-                driver.findElement(By.xpath(decisionValueXpath2)).sendKeys(Keys.TAB);
-
-            }
-            Thread.sleep(2000);
-            reporter.reportLogPassWithScreenshot("New Decision Rule added successfully");
-        }
-*/
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("scroll(0,800)");
         Thread.sleep(1000);
@@ -193,15 +100,16 @@ public class Decisions extends BaseClass {
         Thread.sleep(2000);
         reporter.reportLogPassWithScreenshot("New Decision Created Successfully");
 
-    }//NewDecision finish
+    }
 
-    public void addRule(int i) throws InterruptedException
-    {
-        String equalsTrueXpath = "(//ul[@class='rules-list']//..//input[@value='true'])["+i+"]//parent::*";
-        String equalsFalseXpath = "(//ul[@class='rules-list']//..//input[@value='false'])["+i+"]//parent::*";
-        String ruleOperatorValue = "(//ul[@class='rules-list']//..//div[@class='rule-operator-container'])["+i+"]//select[@class='form-control ']";
-        String decisionValueXpath = "(//ul[@class='rules-list']//..//div[@class='rule-value-container'])["+i+"]//input[@class='form-control']";
-        String ruleOperatorExist = "(//ul[@class='rules-list']//..//div[@class='rule-operator-container'])["+i+"]//select[@class='form-control hide']";
+    public void addRule(int i) throws InterruptedException {
+        String equalsTrueXpath = "(//ul[@class='rules-list']//..//input[@value='true'])[" + i + "]//parent::*";
+        String equalsFalseXpath = "(//ul[@class='rules-list']//..//input[@value='false'])[" + i + "]//parent::*";
+        String ruleOperatorValue = "(//ul[@class='rules-list']//..//div[@class='rule-operator-container'])[" + i + "]//select[@class='form-control ']";
+        String decisionValueXpath = "(//ul[@class='rules-list']//..//div[@class='rule-value-container'])[" + i + "]//input[@class='form-control']";
+        String ruleOperatorExist = "(//ul[@class='rules-list']//..//div[@class='rule-operator-container'])[" + i + "]//select[@class='form-control hide']";
+        String collectionDecisionValue = "//div[@class='bb-in-collection']//textarea";
+        String noValuesAddedXpath= "(//ul[@class='rules-list']//..//div[@class='rule-value-container'])[" + i + "]//div[@class='bb-in-collection']";
 
         WebElement select = driver.findElement(By.xpath(popUpSearchXpath));
         select.sendKeys(keepRefer.get("DECISION"));
@@ -212,43 +120,37 @@ public class Decisions extends BaseClass {
         driver.findElement(By.xpath(popUpOkXpath)).click();
         Thread.sleep(1000);
 
-        if (driver.findElements(By.xpath(ruleOperatorExist)).size() != 0)
-        {
+        if (driver.findElements(By.xpath(ruleOperatorExist)).size() != 0) {
             if (keepRefer.get("DECISION_VALUE").contentEquals("TRUE"))
                 driver.findElement(By.xpath(equalsTrueXpath)).click();
-             else
+            else
                 driver.findElement(By.xpath(equalsFalseXpath)).click();
 
-        }
-        else
-        {
+        } else {
             WebElement element = driver.findElement(By.xpath(ruleOperatorValue));
             Select selectOperation = new Select(element);
             selectOperation.selectByVisibleText(keepRefer.get("DECISION_OPERATION"));
 
-            driver.findElement(By.xpath(decisionValueXpath)).sendKeys(keepRefer.get("DECISION_VALUE"));
-            driver.findElement(By.xpath(decisionValueXpath)).sendKeys(Keys.TAB);
+            if (keepRefer.get("DECISION_OPERATION").contains("collection")) {
 
+            WebElement collection = driver.findElement(By.xpath(noValuesAddedXpath));
+
+                collection.click();
+                Thread.sleep(2000);
+                driver.findElement(By.xpath(collectionDecisionValue)).click();
+                driver.findElement(By.xpath(collectionDecisionValue)).sendKeys(keepRefer.get("DECISION_VALUE"));
+                Thread.sleep(1000);
+
+                driver.findElement(By.xpath(collectionDecisionValue)).sendKeys(Keys.TAB);
+            } else {
+                driver.findElement(By.xpath(decisionValueXpath)).sendKeys(keepRefer.get("DECISION_VALUE"));
+                driver.findElement(By.xpath(decisionValueXpath)).sendKeys(Keys.TAB);
+
+            }
+            Thread.sleep(2000);
+            reporter.reportLogPassWithScreenshot("New Decision Rule added successfully");
         }
-        Thread.sleep(2000);
-        reporter.reportLogPassWithScreenshot("New Decision Rule added successfully");
+
     }
-/*    public void addRule() throws InterruptedException {
-
-        decision = keepRefer.get("DECISION");
-        decisionValue = keepRefer.get("DECISION_VALUE");
-        decisionOperation = keepRefer.get("DECISION_OPERATION");
-
-        WebElement select = driver.findElement(By.xpath(popUpSearchXpath));
-        select.sendKeys(decision);
-        Thread.sleep(1000);
-        driver.findElement(By.xpath(popUpSearchXpath)).click();
-        driver.findElement(By.xpath("//input[@placeholder='Search']//..//li")).click();
-        Thread.sleep(1000);
-        driver.findElement(By.xpath(popUpOkXpath)).click();
-        Thread.sleep(1000);
-
-    }*/
-
 }
 

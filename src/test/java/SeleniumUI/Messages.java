@@ -55,12 +55,13 @@ public class Messages extends BaseClass {
 
         if(driver.findElement(By.xpath(searchTxtBox)).isDisplayed())
         {
-            driver.findElement(By.xpath(searchTxtBox)).sendKeys(keepRefer.get("MESSAGE_ID"));
+            driver.findElement(By.xpath(searchTxtBox)).sendKeys(keepRefer.get("MESSAGE_NAME"));
             driver.findElement(By.xpath(goButton)).click();
+            Thread.sleep(2000);
 
-            WebElement searchResult = driver.findElement(By.xpath("//span[contains(text(),'"+keepRefer.get("MESSAGE_ID")+"')]"));
+            List<WebElement> searchResult = driver.findElements(By.xpath("//span[contains(text(),'"+keepRefer.get("MESSAGE_NAME")+"')]"));
 
-            if(searchResult.isDisplayed()) {
+            if(searchResult.size()>0) {
 
                 reporter.reportLogPassWithScreenshot("Message already created");
                 return true;
@@ -123,6 +124,13 @@ public class Messages extends BaseClass {
         Thread.sleep(1000);
         text.sendKeys(Keys.CONTROL, "a");
         Thread.sleep(1000);
+
+        if(messageProperty.equals("UNDERLINE"))
+
+        {
+            text.sendKeys(Keys.CONTROL, "u");
+            Thread.sleep(1000);
+        }
 
 
    /*    //Inserting the message variable
