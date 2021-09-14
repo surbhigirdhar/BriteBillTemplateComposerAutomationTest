@@ -4,6 +4,7 @@ import Utils.CommonUtils;
 import Utils.FileManager;
 import Utils.FormFiller;
 import base.BaseClass;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -98,6 +99,14 @@ public class DataSample extends BaseClass
 
             txtarea.sendKeys(Keys.CONTROL+"v");
             Thread.sleep(5000);
+
+            driver.findElement(By.xpath("//textarea")).sendKeys(Keys.CONTROL,Keys.HOME);
+            int noOfclick = 11;
+            for(int i = 0 ; i < noOfclick; i++) {
+                driver.findElement(By.xpath("//textarea")).sendKeys(Keys.PAGE_DOWN);
+                reporter.reportLogWithScreenshot("DataSample-"+i);
+            }
+
             driver.findElement(By.xpath(saveButton)).click();
 
             reporter.reportLogPassWithScreenshot("Data Sample updated");
