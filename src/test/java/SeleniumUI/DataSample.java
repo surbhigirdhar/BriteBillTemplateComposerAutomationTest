@@ -39,6 +39,8 @@ public class DataSample extends BaseClass
         Thread.sleep(1000);
         runForDataSample(keepRefer.get("DATA_SAMPLE_FR"),"FR");
         Thread.sleep(2000);
+        runForDataSample(keepRefer.get("DATA_SAMPLE_NEG"),"NEG");
+        Thread.sleep(2000);
 
     }
 
@@ -72,17 +74,34 @@ public class DataSample extends BaseClass
             driver.findElement(By.xpath(dataSampleTxtarea)).sendKeys(Keys.DELETE);
 
             //append facts tags
-            for (int i = 1; i < 5; i++)
-            {
-                if (keepRefer.containsKey("DECISION" + i) ) {
+
+            if (dsName == keepRefer.get("DATA_SAMPLE_NEG")){
+            for (int i = 1; i < 5; i++) {
+                if (keepRefer.containsKey("DECISION" + i)) {
                     if (!keepRefer.get("DECISION" + i).isEmpty()) {
                         //String decisionValue = getDecisionValue(keepRefer.get("DATASAMPLE_DECISION_VALUE" + i), keepRefer.get("DECISION_OPERATION"+i));
-                        String decisionValue = keepRefer.get("DATASAMPLE_DECISION_VALUE" + i);
+                        String decisionValue = keepRefer.get("DATASAMPLE_NEG_VALUE" + i);
                         factsTags = factsTags + "<FactValue>\n" +
                                 "      <name>" + keepRefer.get("DECISION" + i) + "</name>\n" +
                                 "      <valueString>" + decisionValue + "</valueString>\n" +
                                 "    </FactValue>";
 
+                    }
+                }
+            }
+        }
+            else {
+                for (int i = 1; i < 5; i++) {
+                    if (keepRefer.containsKey("DECISION" + i)) {
+                        if (!keepRefer.get("DECISION" + i).isEmpty()) {
+                            //String decisionValue = getDecisionValue(keepRefer.get("DATASAMPLE_DECISION_VALUE" + i), keepRefer.get("DECISION_OPERATION"+i));
+                            String decisionValue = keepRefer.get("DATASAMPLE_DECISION_VALUE" + i);
+                            factsTags = factsTags + "<FactValue>\n" +
+                                    "      <name>" + keepRefer.get("DECISION" + i) + "</name>\n" +
+                                    "      <valueString>" + decisionValue + "</valueString>\n" +
+                                    "    </FactValue>";
+
+                        }
                     }
                 }
             }
@@ -101,12 +120,22 @@ public class DataSample extends BaseClass
             Thread.sleep(5000);
 
             driver.findElement(By.xpath("//textarea")).sendKeys(Keys.CONTROL,Keys.HOME);
-            int noOfclick = 11;
+           /* int noOfclick = 11;
             for(int i = 0 ; i < noOfclick; i++) {
                 driver.findElement(By.xpath("//textarea")).sendKeys(Keys.PAGE_DOWN);
                 reporter.reportLogWithScreenshot("DataSample-"+i);
-            }
+            } */
 
+            driver.findElement(By.xpath("//textarea")).sendKeys(Keys.CONTROL+"f");
+            Thread.sleep(1000);
+            WebElement findFact =  driver.findElement(By.xpath("//input[@placeholder='Search for']"));
+            findFact.click();
+            Thread.sleep(1000);
+            findFact.sendKeys(keepRefer.get("DECISION1"));
+            findFact.sendKeys(Keys.ENTER);
+            Thread.sleep(1000);
+            reporter.reportLogWithScreenshot("DataSample");
+            Thread.sleep(1000);
             driver.findElement(By.xpath(saveButton)).click();
 
             reporter.reportLogPassWithScreenshot("Data Sample updated");

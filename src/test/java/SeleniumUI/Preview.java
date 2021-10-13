@@ -95,7 +95,7 @@ public class Preview extends BaseClass
         {
             reporter.reportLogFailWithScreenshot("Generate PDF button not displayed");
         }
-        Thread.sleep(5000);
+        Thread.sleep(7000);
 
         FileManager.copyAllFiles(MainConfig.properties.getProperty("PDF_PATH"), MainConfig.properties.getProperty("Bill_PATH"),keepRefer.get("TestCaseID")+"_"+lang+".pdf");
 
@@ -137,27 +137,53 @@ public class Preview extends BaseClass
                     String[] variableArr = StringUtils.substringsBetween(message, "{{", "}}");
 
                     for (String var1 : variableArr) {
-                        newmsg = newmsg.replace("{{" + var1 + "}}", "");
+                        newmsg = newmsg.replace("{{" + var1 + "}}", "#");
                     }
                 }
 
-                if(lang.contains("NEG"))
+                String[] msgArr = newmsg.split("'");
+                for(String msg1:msgArr)
                 {
-                    if (!content.contains(newmsg)) {
-                        reporter.reportLogPassWithScreenshot("Message not present in PDF Bill");
-                        status = "Pass";
+                    String[] msgarr = msg1.trim().split("#");
+                    for (String msg2 : msgarr)
+                    {
+                        if (lang.contains("NEG"))
+                        {
+                            if (!content.contains(msg2))
+                            {
+                                status = "Pass";
+                            } else {
+                                status = "Fail";
+                            }
+                        }
+                        else
+                            {
+
+                            if (content.contains(msg2))
+                            {
+                                status = "Pass";
+                            } else
+                                {
+                                status = "Fail";
+                                break;
+                            }
+
+                        }
+                    }
+                }
+
+                if(!lang.contains("NEG")) {
+                    if (status.contentEquals("Fail")) {
+                        reporter.reportLogFailWithScreenshot(lang +"  Message Not Present");
                     } else {
-                        reporter.reportLogFailWithScreenshot("Message Present in PDF bill");
-                        status = "Fail";
+                        reporter.reportLogPassWithScreenshot(lang +"  Message present");
                     }
                 }
                 else {
-                    if (content.contains(newmsg)) {
-                        reporter.reportLogPassWithScreenshot("Message present in PDF Bill");
-                        status = "Pass";
+                    if (status.contentEquals("Pass")) {
+                        reporter.reportLogPassWithScreenshot(lang + " Message Not Present");
                     } else {
-                        reporter.reportLogFailWithScreenshot("Message Not Present in PDF bill");
-                        status = "Fail";
+                        reporter.reportLogFailWithScreenshot(lang + " Message present");
                     }
                 }
 

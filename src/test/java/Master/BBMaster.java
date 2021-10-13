@@ -29,6 +29,7 @@ public class BBMaster extends BaseClass {
     Preview pw = new Preview();
     PreviewDigital dig = new PreviewDigital();
     DataSample dataSample = new DataSample();
+    CleanupLiveArea clean = new CleanupLiveArea();
 
 
     @Parameters({"Env", "CalendarName", "TestCaseID","Release"})
@@ -70,6 +71,10 @@ public class BBMaster extends BaseClass {
         tc.Projects();
         tc.SearchProject();
 
+        /* To cleanup Live area rules */
+       // clean.cleanup();
+
+
         String invoiceType = keepRefer.get("INVOICE_TYPE");
         keepRefer.put("INVOICE", invoiceType);
         keepRefer.put("MESSAGE_STYLE", keepRefer.get("MSG_STYLE_" + invoiceType.toUpperCase()));
@@ -96,11 +101,12 @@ public class BBMaster extends BaseClass {
             dc.Decision();
             la.LiveArea();
 
-            dataSample.OpenDataSamplePage();
-            dataSample.SearchDataSample();
+
 
         }
 
+        dataSample.OpenDataSamplePage();
+        dataSample.SearchDataSample();
             pw.launchPreview();
         if (keepRefer.get("INVOICE_TYPE").equalsIgnoreCase("Paper")) {
             if (!keepRefer.get("CUSTOMER_SAMPLE_EN").isEmpty()) {

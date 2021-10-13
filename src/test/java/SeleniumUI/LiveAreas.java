@@ -3,7 +3,9 @@ package SeleniumUI;
 import Config.MainConfig;
 import base.BaseClass;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.security.Key;
 import java.time.LocalDate;
@@ -37,7 +39,7 @@ public class LiveAreas extends BaseClass {
     public String levelValue;
     public String deleteRule= "//td[@class='icon-action bb-grid-cell-0-6 bb-grid-cell-callback']/parent::*//i[@class='delete']";
     public String deleteConfirm = "//div[@class='modal-footer bb-btn-group ng-scope']//*[contains(text(),'Delete')]";
-    public String levelXpath = "//select[@id='bb-te-decision-editor-level-select']";
+    public String levelXpath = "//div[@class='type form-group ng-scope']//select";
     public String levelType;
     public String levelTypeXpath = "//select[@id = 'bb-te-live-area-editor-options-select']";
 
@@ -82,20 +84,8 @@ public class LiveAreas extends BaseClass {
         reporter.reportLogPassWithScreenshot("Selected Live Area is Displayed");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[contains(text(),'"+ liveAreaName +"')]")).click();
-        Thread.sleep(5000);
-        reporter.reportLogPassWithScreenshot("Selected Live Area is Ready to Edit");
-        Thread.sleep(2000);
-        levelType = keepRefer.get("LEVEL_TYPE");
-        //    Select type = new Select(driver.findElement(By.xpath(levelTypeXpath)));
-        //   type.selectByVisibleText(levelType);
         Thread.sleep(1000);
-        levelValue = keepRefer.get("LEVEL");
-        //     Select level = new Select(driver.findElement(By.xpath(levelXpath)));
-        //   level.selectByVisibleText(levelValue);
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("scroll(0,800)");
-        Thread.sleep(1000);
     }
     public void AddRule() throws InterruptedException {
         //delete Rule if exists
@@ -105,7 +95,29 @@ public class LiveAreas extends BaseClass {
             driver.findElement(By.xpath(deleteConfirm)).click();
             Thread.sleep(2000);
         }*/
+        WebDriverWait wait = new WebDriverWait(driver, 15);
 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(addRuleXpath)));
+
+        reporter.reportLogPassWithScreenshot("Selected Live Area is Ready to Edit");
+        Thread.sleep(1000);
+        levelType = keepRefer.get("LEVEL_TYPE");
+        //    Select type = new Select(driver.findElement(By.xpath(levelTypeXpath)));
+        //   type.selectByVisibleText(levelType);
+        Thread.sleep(1000);
+
+
+
+//        levelValue = keepRefer.get("FACT_LEVEL");
+//        WebElement factLevel = driver.findElement(By.xpath(levelXpath));
+//        Select level = new Select(factLevel);
+//        level.selectByVisibleText(levelValue);
+//                Thread.sleep(1000);
+
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("scroll(0,800)");
+        Thread.sleep(1000);
         // Add Rule
         driver.findElement(By.xpath(addRuleXpath)).click();
         Thread.sleep(1000);
@@ -114,7 +126,7 @@ public class LiveAreas extends BaseClass {
 
         WebElement select = driver.findElement(By.xpath(decisionXpath));
         select.sendKeys(decisionName);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         driver.findElement(By.xpath(decisionXpath)).click();
         driver.findElement(By.xpath("//input[@id = 'addRuleModalInputDecision']//..//li")).click();
 
@@ -123,7 +135,7 @@ public class LiveAreas extends BaseClass {
         messageName = keepRefer.get("MESSAGE_NAME");
         WebElement select1 = driver.findElement(By.xpath(messageXpath));
         select1.sendKeys(messageName);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         driver.findElement(By.xpath(messageXpath)).click();
         driver.findElement(By.xpath("//input[@id = 'addRuleModalInputMessage']//..//li")).click();
@@ -167,9 +179,13 @@ public class LiveAreas extends BaseClass {
 
         JavascriptExecutor jsUp = (JavascriptExecutor) driver;
         jsUp.executeScript("scroll(0,-800)");
-        Thread.sleep(2000);
-
+        Thread.sleep(3000);
+     //   if (levelValue.equalsIgnoreCase("Account")) {
+       //     driver.findElement(By.xpath("//button[@id='bb-te-live-area-editor-top-save-button']")).click();
+       // }
+        //else {
         driver.findElement(By.xpath(closeButtonXpath)).click();
+        Thread.sleep(2000);
+          //   }
     }
-
 }

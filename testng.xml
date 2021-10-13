@@ -55,7 +55,27 @@
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
+		<test name="TC007_V21_Validate Message for LTPYM_CHARGE for CBU account_Paper" >
 
+		<classes>
+			<parameter name="TestCaseID" value="TC007_V21_Validate Message for LTPYM_CHARGE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+	<!--<test name="TC008_V21_Validate Message for LTPYM_CHARGE for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC008_V21_Validate Message for LTPYM_CHARGE for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC008_V21_Validate Message for LTPYM_CHARGE for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC008_V21_Validate Message for LTPYM_CHARGE for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
 	<test name="TC006_V21_Validate Message for ACCOUNT_CREDIT_CLASS for EBU account_Digital" >
 
 		<classes>
@@ -90,8 +110,8 @@
 			<parameter name="TestCaseID" value="TC011_V21_Validate Message for BILL_FREQUENCY for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC012_V21_Validate Message for BILL_FREQUENCY for EBU account_Paper" >
+	</test>-->
+	<!--<test name="TC012_V21_Validate Message for BILL_FREQUENCY for EBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC012_V21_Validate Message for BILL_FREQUENCY for EBU account_Paper"></parameter>
@@ -105,7 +125,21 @@
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC015_V21_Validate Message for BILL_HOLD_INDICATOR for CBU account_Digital" >
+	<test name="TC013_V21_Validate Message for CONSOLIDATE_IND for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC013_V21_Validate Message for CONSOLIDATE_IND for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC015_V21_Validate Message for BILL_HOLD_INDICATOR for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC015_V21_Validate Message for BILL_HOLD_INDICATOR for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+	<!--<test name="TC015_V21_Validate Message for BILL_HOLD_INDICATOR for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC015_V21_Validate Message for BILL_HOLD_INDICATOR for CBU account_Digital"></parameter>
@@ -132,8 +166,8 @@
 			<parameter name="TestCaseID" value="TC017_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC017_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for CBU account_Digital" >
+	</test>-->
+	<!--<test name="TC017_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC017_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for CBU account_Digital"></parameter>
@@ -153,12 +187,26 @@
 			<parameter name="TestCaseID" value="TC018_V21_Validate Message for ACCOUNT_BALANCE_WITH_TAX for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
-
-	<!--<test name="TC027_V21_Validate Message for UTC_IND for CBU account_Digital" >
+	</test>
+	<test name="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC027_V21_Validate Message for UTC_IND for CBU account_Digital"></parameter>
+			<parameter name="TestCaseID" value="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC023_V21_Validate Message for ACCOUNT_TENURE for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC023_V21_Validate Message for ACCOUNT_TENURE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+
+	<!--<test name="TC027_V21_Validate Message for UTC_IND for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC027_V21_Validate Message for UTC_IND for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
@@ -183,7 +231,14 @@
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>-->
-	<!--<test name="TC029_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for CBU account_Digital" >
+	<!--<test name="TC029_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC029_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC029_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC029_V21_Validate Message for CREDIT_CARD_TO_EXPIRE for CBU account_Digital"></parameter>
@@ -217,8 +272,8 @@
 			<parameter name="TestCaseID" value="TC031_V21_Validate Message for CYCLE_CODE for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
-	<!--<test name="TC031_V21_Validate Message for CYCLE_CODE for CBU account_Digital" >
+	</test>
+	<test name="TC031_V21_Validate Message for CYCLE_CODE for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC031_V21_Validate Message for CYCLE_CODE for CBU account_Digital"></parameter>
@@ -226,15 +281,15 @@
 		</classes>
 	</test>-->
 
-	<!--<test name="TC032_V21_Validate Message for CYCLE_CODE for EBU account_Digital" >
+	<!--test name="TC032_V21_Validate Message for CYCLE_CODE for EBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC032_V21_Validate Message for CYCLE_CODE for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
+	</test>-->
 
-	<test name="TC033_V21_Validate Message for CYCLE_YEAR for CBU account_Paper" >
+	<!--<test name="TC033_V21_Validate Message for CYCLE_YEAR for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC033_V21_Validate Message for CYCLE_YEAR for CBU account_Paper"></parameter>
@@ -245,6 +300,13 @@
 
 		<classes>
 			<parameter name="TestCaseID" value="TC034_V21_Validate Message for CYCLE_YEAR for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC034_V21_Validate Message for CYCLE_YEAR for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC034_V21_Validate Message for CYCLE_YEAR for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>-->
@@ -264,7 +326,35 @@
 <!--			<class name="Master.BBMaster"></class>-->
 <!--		</classes>-->
 <!--	</test>
-	<test name="TC111_V21_Validate Message for ACCOUNT_TYPE for CBU account_Paper" >
+	<test name="TC037_V21_Validate Message for LOB for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC037_V21_Validate Message for LOB for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC037_V21_Validate Message for LOB for CBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC037_V21_Validate Message for LOB for CBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC038_V21_Validate Message for LOB for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC038_V21_Validate Message for LOB for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC038_V21_Validate Message for LOB for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC038_V21_Validate Message for LOB for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+<!--	<test name="TC111_V21_Validate Message for ACCOUNT_TYPE for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC111_V21_Validate Message for ACCOUNT_TYPE for CBU account_Paper"></parameter>
@@ -277,15 +367,36 @@
 			<parameter name="TestCaseID" value="TC111_V21_Validate Message for ACCOUNT_TYPE for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
-	<!--<test name="TC113_V21_Validate Message for ACCOUNT_SUBTYPE for CBU Account" >
+	</test>
+	<test name="TC113_V21_Validate Message for ACCOUNT_SUBTYPE for CBU Account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC113_V21_Validate Message for ACCOUNT_SUBTYPE for CBU Account"></parameter>
+			<parameter name="TestCaseID" value="TC113_V21_Validate Message for ACCOUNT_SUBTYPE for CBU Account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Paper" >
+	<test name="TC113_V21_Validate Message for ACCOUNT_SUBTYPE for CBU Account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC113_V21_Validate Message for ACCOUNT_SUBTYPE for CBU Account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC036_V21_Validate Message for CYCLE_MONTH for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+	<!--<test name="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Paper"></parameter>
@@ -298,20 +409,6 @@
 			<parameter name="TestCaseID" value="TC020_V21_Validate Message for BILLING_PROVINCE for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
-	<!--<test name="TC0117_V21_Validate Message for  CHANNEL for CBU account_Paper" >
-
-		<classes>
-			<parameter name="TestCaseID" value="TC0117_V21_Validate Message for  CHANNEL for CBU account_Paper"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
-	</test>
-	<test name="TC115_V21_Validate Message for  PAYMENT_METHOD for CBU account_Digital" >
-
-		<classes>
-			<parameter name="TestCaseID" value="TC115_V21_Validate Message for  PAYMENT_METHOD for CBU account_Digital"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
 	</test>
 	<test name="TC0117_V21_Validate Message for  CHANNEL for CBU account_Paper" >
 
@@ -320,14 +417,21 @@
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC0117_V21_Validate Message for  CHANNEL for CBU account_Digital" >
+		<test name="TC0117_V21_Validate Message for  CHANNEL for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC0117_V21_Validate Message for  CHANNEL for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
+	</test>-->
+<!--	<test name="TC115_V21_Validate Message for  PAYMENT_METHOD for CBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC115_V21_Validate Message for  PAYMENT_METHOD for CBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
 	</test>
-	<test name="TC119_V21_Validate Message for  FIRSTBILL for CBU account_Paper" >
+		<test name="TC119_V21_Validate Message for  FIRSTBILL for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC119_V21_Validate Message for  FIRSTBILL for CBU account_Paper"></parameter>
@@ -375,11 +479,88 @@
 			<parameter name="TestCaseID" value="TC044_V21_Validate Message for SPECIAL_NEED_CUST for EBU accont_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
+	</test>
+	<test name="TC045_V21_Validate Message for NETWORK_TYPE for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC045_V21_Validate Message for NETWORK_TYPE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC045_V21_Validate Message for NETWORK_TYPE for CBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC045_V21_Validate Message for NETWORK_TYPE for CBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+<!--	<test name="TC049_V21_Validate Message for BYO_IND for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC049_V21_Validate Message for BYO_IND for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC049_V21_Validate Message for BYO_IND for CBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC049_V21_Validate Message for BYO_IND for CBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC050_V21_Validate Message for BYO_IND for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC050_V21_Validate Message for BYO_IND for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC050_V21_Validate Message for BYO_IND for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC050_V21_Validate Message for BYO_IND for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+	<!--<test name="TC051_V21_Validate Message for SKU for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC051_V21_Validate Message for SKU for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC051_V21_Validate Message for SKU for CBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC051_V21_Validate Message for SKU for CBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC052_V21_Validate Message for SKU for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC052_V21_Validate Message for SKU for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC052_V21_Validate Message for SKU for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC052_V21_Validate Message for SKU for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
 	</test>-->
 	<!--<test name="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
@@ -397,35 +578,77 @@
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC053_V21_Validate Message for WIRELESS_DATA_OVERAGE for EBU account_Paper" >
+	<test name="TC058_V21_Validate Message for AIRTIME_OVERAGE for EBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC053_V21_Validate Message for WIRELESS_DATA_OVERAGE for EBU account_Paper"></parameter>
+			<parameter name="TestCaseID" value="TC058_V21_Validate Message for AIRTIME_OVERAGE for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+	<!--<test name="TC058_V21_Validate Message for AIRTIME_OVERAGE for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC058_V21_Validate Message for AIRTIME_OVERAGE for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC053_V21_Validate Message for WIRELESS_DATA_OVERAGE for EBU account_Digital" >
+	<test name="TC059_V21_Validate Message for  SOC for CBU account_Paper" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC053_V21_Validate Message for WIRELESS_DATA_OVERAGE for EBU account_Digital"></parameter>
+			<parameter name="TestCaseID" value="TC059_V21_Validate Message for  SOC for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Paper" >
+	<test name="TC059_V21_Validate Message for  SOC for CBU account_Digital" >
 
 		<classes>
-			<parameter name="TestCaseID" value="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Paper"></parameter>
+			<parameter name="TestCaseID" value="TC059_V21_Validate Message for  SOC for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
-	<test name="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Digital" >
+	<test name="TC060_V21_Validate Message for SOC for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC060_V21_Validate Message for SOC for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+	<!--<test name="TC060_V21_Validate Message for SOC for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC060_V21_Validate Message for SOC for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
+	<!--	<test name="TC053_V21_Validate Message for WIRELESS_DATA_OVERAGE for EBU account_Paper" >
+
+            <classes>
+                <parameter name="TestCaseID" value="TC053_V21_Validate Message for WIRELESS_DATA_OVERAGE for EBU account_Paper"></parameter>
+                <class name="Master.BBMaster"></class>
+            </classes>
+        </test>
+        <test name="TC053_V21_Validate Message for WIRELESS_DATA_OVERAGE for EBU account_Digital" >
+
+            <classes>
+                <parameter name="TestCaseID" value="TC053_V21_Validate Message for WIRELESS_DATA_OVERAGE for EBU account_Digital"></parameter>
+                <class name="Master.BBMaster"></class>
+            </classes>
+        </test>
+        <test name="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Paper" >
+
+            <classes>
+                <parameter name="TestCaseID" value="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Paper"></parameter>
+                <class name="Master.BBMaster"></class>
+            </classes>
+        </test>-->
+	<!--<test name="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC054_V21_Validate Message for WIRELESS_DATA_OVERAGE for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
-	<!--<test name="TC057_V21_Validate Message for AIRTIME_OVERAGE for CBU account_Paper" >
+	</test>
+	<test name="TC057_V21_Validate Message for AIRTIME_OVERAGE for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC057_V21_Validate Message for AIRTIME_OVERAGE for CBU account_Paper"></parameter>
@@ -436,6 +659,20 @@
 
 		<classes>
 			<parameter name="TestCaseID" value="TC057_V21_Validate Message for AIRTIME_OVERAGE for CBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC0103_V21_Validate Message for IBLC_IND for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC0103_V21_Validate Message for IBLC_IND for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC0103_V21_Validate Message for IBLC_IND for CBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC0103_V21_Validate Message for IBLC_IND for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>
@@ -516,8 +753,8 @@
 			<parameter name="TestCaseID" value="TC135_V21_Validate Message for  combination of FACT.DOCUMENT.CYCLE_CODE and FACT.DOCUMENT.FIRSTBILL_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
-	<!--<test name="TC135_V21_Validate Message for  combination of FACT.DOCUMENT.CYCLE_CODE and FACT.DOCUMENT.FIRSTBILL_Digital" >
+	</test>
+	<test name="TC135_V21_Validate Message for  combination of FACT.DOCUMENT.CYCLE_CODE and FACT.DOCUMENT.FIRSTBILL_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC135_V21_Validate Message for  combination of FACT.DOCUMENT.CYCLE_CODE and FACT.DOCUMENT.FIRSTBILL_Digital"></parameter>
@@ -537,8 +774,8 @@
 			<parameter name="TestCaseID" value="TC137_V21_Validate Message for  combination of FACT.DOCUMENT.ACCOUNT_CREDIT_CLASS and FACT.DOCUMENT.PAYMENT_METHOD_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC0118_V21_Validate Message for  CHANNEL for EBU account_Paper" >
+	</test>-->
+	<!--<test name="TC0118_V21_Validate Message for  CHANNEL for EBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC0118_V21_Validate Message for  CHANNEL for EBU account_Paper"></parameter>
@@ -593,8 +830,8 @@
 			<parameter name="TestCaseID" value="TC072_V21_Validate Message for FC_DESCRIPTION for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>-->
-	<!--<test name="TC076_V21_Validate Message for DC_EFFECTIVE_DATE for EBU account_Paper" >
+	</test>
+	<test name="TC076_V21_Validate Message for DC_EFFECTIVE_DATE for EBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC076_V21_Validate Message for DC_EFFECTIVE_DATE for EBU account_Paper"></parameter>
@@ -621,8 +858,8 @@
 			<parameter name="TestCaseID" value="TC130_V21_Validate Message for DATA_SHARE_PLAN for EBU_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC124_V21_Validate Message for  LANGUAGE for EBU account_Paper" >
+	</test>-->
+	<!--<test name="TC124_V21_Validate Message for  LANGUAGE for EBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC124_V21_Validate Message for  LANGUAGE for EBU account_Paper"></parameter>
@@ -691,8 +928,8 @@
 			<parameter name="TestCaseID" value="TC127_V21_Validate Message for DATA_USAGE for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC128_V21_Validate Message for DATA_USAGE for EBU account_Paper" >
+	</test>-->
+	<!--<test name="TC128_V21_Validate Message for DATA_USAGE for EBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC128_V21_Validate Message for DATA_USAGE for EBU account_Paper"></parameter>
@@ -761,15 +998,15 @@
 			<parameter name="TestCaseID" value="TC0106_V21_Validate Message for CONTRACT_DAYS_TO_END for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC0125_V21_Validate Message for  ACCOUNT_CREDIT_CLASS for CBU account_Paper" >
+	</test>-->
+	<!--<test name="TC0125_V21_Validate Message for  ACCOUNT_CREDIT_CLASS for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC0125_V21_Validate Message for  ACCOUNT_CREDIT_CLASS for CBU account_Paper"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC0125_V21_Validate Message for  ACCOUNT_CREDIT_CLASS for CBU account_Digital" >
+	</test>-->
+	<!--<test name="TC0125_V21_Validate Message for  ACCOUNT_CREDIT_CLASS for CBU account_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC0125_V21_Validate Message for  ACCOUNT_CREDIT_CLASS for CBU account_Digital"></parameter>
@@ -803,8 +1040,8 @@
 			<parameter name="TestCaseID" value="TC069_V21_Validate Message for FEATURE_CODE for EBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC070_V21_Validate Message for FEATURE_CODE for CBU account_Paper" >
+	</test>-->
+	<!--<test name="TC070_V21_Validate Message for FEATURE_CODE for CBU account_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC070_V21_Validate Message for FEATURE_CODE for CBU account_Paper"></parameter>
@@ -817,50 +1054,50 @@
 			<parameter name="TestCaseID" value="TC070_V21_Validate Message for FEATURE_CODE for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC067_V21_Validate Message for SOC_PRICE for CBU account_Paper" >
-
-		<classes>
-			<parameter name="TestCaseID" value="TC067_V21_Validate Message for SOC_PRICE for CBU account_Paper"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
-	</test>
-	<test name="TC067_V21_Validate Message for SOC_PRICE for CBU account_Digital" >
-
-		<classes>
-			<parameter name="TestCaseID" value="TC067_V21_Validate Message for SOC_PRICE for CBU account_Digital"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
-	</test>
-	<test name="TC068_V21_Validate Message for SOC_PRICE for EBU account_Paper" >
-
-		<classes>
-			<parameter name="TestCaseID" value="TC068_V21_Validate Message for SOC_PRICE for EBU account_Paper"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
-	</test>
-	<test name="TC068_V21_Validate Message for SOC_PRICE for EBU account_Digital" >
-
-		<classes>
-			<parameter name="TestCaseID" value="TC068_V21_Validate Message for SOC_PRICE for EBU account_Digital"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
 	</test>-->
-	<test name="TC136_V21_Validate Message for combination of FACT.DOCUMENT.BILLING_POSTAL_CODE and FACT.DOCUMENT.CONSOLIDATE_IND_Paper" >
+	<!--	<test name="TC067_V21_Validate Message for SOC_PRICE for CBU account_Paper" >
 
-		<classes>
-			<parameter name="TestCaseID" value="TC136_V21_Validate Message for combination of FACT.DOCUMENT.BILLING_POSTAL_CODE and FACT.DOCUMENT.CONSOLIDATE_IND_Paper"></parameter>
-			<class name="Master.BBMaster"></class>
-		</classes>
-	</test>
-	<!--<test name="TC136_V21_Validate Message for combination of FACT.DOCUMENT.BILLING_POSTAL_CODE and FACT.DOCUMENT.CONSOLIDATE_IND_Digital" >
+            <classes>
+                <parameter name="TestCaseID" value="TC067_V21_Validate Message for SOC_PRICE for CBU account_Paper"></parameter>
+                <class name="Master.BBMaster"></class>
+            </classes>
+        </test>
+        <test name="TC067_V21_Validate Message for SOC_PRICE for CBU account_Digital" >
+
+            <classes>
+                <parameter name="TestCaseID" value="TC067_V21_Validate Message for SOC_PRICE for CBU account_Digital"></parameter>
+                <class name="Master.BBMaster"></class>
+            </classes>
+        </test>
+        <test name="TC068_V21_Validate Message for SOC_PRICE for EBU account_Paper" >
+
+            <classes>
+                <parameter name="TestCaseID" value="TC068_V21_Validate Message for SOC_PRICE for EBU account_Paper"></parameter>
+                <class name="Master.BBMaster"></class>
+            </classes>
+        </test>
+        <test name="TC068_V21_Validate Message for SOC_PRICE for EBU account_Digital" >
+
+            <classes>
+                <parameter name="TestCaseID" value="TC068_V21_Validate Message for SOC_PRICE for EBU account_Digital"></parameter>
+                <class name="Master.BBMaster"></class>
+            </classes>
+        </test>-->
+       <!-- <test name="TC136_V21_Validate Message for combination of FACT.DOCUMENT.BILLING_POSTAL_CODE and FACT.DOCUMENT.CONSOLIDATE_IND_Paper" >
+
+            <classes>
+                <parameter name="TestCaseID" value="TC136_V21_Validate Message for combination of FACT.DOCUMENT.BILLING_POSTAL_CODE and FACT.DOCUMENT.CONSOLIDATE_IND_Paper"></parameter>
+                <class name="Master.BBMaster"></class>
+            </classes>
+        </test>
+	<test name="TC136_V21_Validate Message for combination of FACT.DOCUMENT.BILLING_POSTAL_CODE and FACT.DOCUMENT.CONSOLIDATE_IND_Digital" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC136_V21_Validate Message for combination of FACT.DOCUMENT.BILLING_POSTAL_CODE and FACT.DOCUMENT.CONSOLIDATE_IND_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
-	</test>
-	<test name="TC138_V21_Validate Message for  combination of FACT.DOCUMENT.LOB and FACT.DOCUMENT.CYCLE_MONTH_Paper" >
+	</test>-->
+	<!--<test name="TC138_V21_Validate Message for  combination of FACT.DOCUMENT.LOB and FACT.DOCUMENT.CYCLE_MONTH_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC138_V21_Validate Message for  combination of FACT.DOCUMENT.LOB and FACT.DOCUMENT.CYCLE_MONTH_Paper"></parameter>
@@ -929,8 +1166,22 @@
 			<parameter name="TestCaseID" value="TC083_V21_Validate Message for COMPANY_CODE for CBU account_Digital"></parameter>
 			<class name="Master.BBMaster"></class>
 		</classes>
+</test>-->
+	<test name="TC084_V21_Validate Message for COMPANY_CODE for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC084_V21_Validate Message for COMPANY_CODE for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
 	</test>
-	<test name="TC139_V21_Validate Message for  combination of FACT.CLASSIFIER.ASSET.DISCOUNT_CODE and FACT.CLASSIFIER.ASSET.FRANCHISE_CODE_Paper" >
+	<test name="TC084_V21_Validate Message for COMPANY_CODE for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC084_V21_Validate Message for COMPANY_CODE for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<!--<test name="TC139_V21_Validate Message for  combination of FACT.CLASSIFIER.ASSET.DISCOUNT_CODE and FACT.CLASSIFIER.ASSET.FRANCHISE_CODE_Paper" >
 
 		<classes>
 			<parameter name="TestCaseID" value="TC139_V21_Validate Message for  combination of FACT.CLASSIFIER.ASSET.DISCOUNT_CODE and FACT.CLASSIFIER.ASSET.FRANCHISE_CODE_Paper"></parameter>
@@ -944,8 +1195,74 @@
 			<class name="Master.BBMaster"></class>
 		</classes>
 	</test>-->
+	<!--<test name="TC144_Validate message display for a message using both inclusion and exclusion parameters in a decision_Paper" >
 
+		<classes>
+			<parameter name="TestCaseID" value="TC144_Validate message display for a message using both inclusion and exclusion parameters in a decision_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC144_Validate message display for a message using both inclusion and exclusion parameters in a decision_Digital" >
 
+		<classes>
+			<parameter name="TestCaseID" value="TC144_Validate message display for a message using both inclusion and exclusion parameters in a decision_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC107_V21_Validate Message for CREDIT_REASON for CBU account_Paper" >
 
+		<classes>
+			<parameter name="TestCaseID" value="TC107_V21_Validate Message for CREDIT_REASON for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC107_V21_Validate Message for CREDIT_REASON for CBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC107_V21_Validate Message for CREDIT_REASON for CBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC0108_V21_Validate Message for CREDIT_REASON for EBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC0108_V21_Validate Message for CREDIT_REASON for EBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC0108_V21_Validate Message for CREDIT_REASON for EBU account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC0108_V21_Validate Message for CREDIT_REASON for EBU account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC099_V21_Validate Message for SUBSCRIBER_TENURE for CBU account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC099_V21_Validate Message for SUBSCRIBER_TENURE for CBU account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test><test name="TC099_V21_Validate Message for SUBSCRIBER_TENURE for CBU account_Digital" >
+
+	<classes>
+		<parameter name="TestCaseID" value="TC099_V21_Validate Message for SUBSCRIBER_TENURE for CBU account_Digital"></parameter>
+		<class name="Master.BBMaster"></class>
+	</classes>
+</test>
+	<test name="TC100_V21_Validate Message for SUBSCRIBER_TENURE for EBU for account_Paper" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC100_V21_Validate Message for SUBSCRIBER_TENURE for EBU for account_Paper"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>
+	<test name="TC100_V21_Validate Message for SUBSCRIBER_TENURE for EBU for account_Digital" >
+
+		<classes>
+			<parameter name="TestCaseID" value="TC100_V21_Validate Message for SUBSCRIBER_TENURE for EBU for account_Digital"></parameter>
+			<class name="Master.BBMaster"></class>
+		</classes>
+	</test>-->
 
 </suite> <!-- Suite -->

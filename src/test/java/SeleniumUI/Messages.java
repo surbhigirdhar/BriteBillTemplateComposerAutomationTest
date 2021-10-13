@@ -22,6 +22,8 @@ public class Messages extends BaseClass {
     public String messageName;
     public String languageXpath ="//select[@id = 'bb-te-message-editor-locale-new-select']";
     public String messageProperty;
+    public String listType;
+    public String hyperlinkText;
     public String boldXpath = "//button[@title= 'Bold']";
     public String italicXpath = "//button[@title= 'Italic']";
     public String messageTextXpath = "//body[@id ='tinymce']";
@@ -122,8 +124,36 @@ public class Messages extends BaseClass {
         WebElement text = driver.findElement(By.xpath(messageTextXpath));
         text.sendKeys(messageText);
         Thread.sleep(1000);
+
+        //Hyperlinks
+        driver.switchTo().parentFrame();
+        hyperlinkText = keepRefer.get("HYPERLINK");
+
+        if(!hyperlinkText.isEmpty())
+        {
+            driver.findElement(By.xpath("//button[@title='Insert/edit link']")).click();
+            WebElement url = driver.findElement(By.xpath("//label[contains(text(),'URL')]/..//input[@type='text']"));
+            url.click();
+            url.sendKeys(hyperlinkText);
+            Thread.sleep(1000);
+            WebElement title = driver.findElement(By.xpath("//label[contains(text(),'Title')]/..//input[@type='text']"));
+            title.click();
+            title.sendKeys(hyperlinkText);
+            Thread.sleep(1000);
+            WebElement target = driver.findElement(By.xpath("//button[@title='Target']"));
+            target.click();
+            //Select targetName = new Select(target);
+            //targetName.selectByVisibleText("New window");
+            driver.findElement(By.xpath("//div[contains(text(),'New window')]")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//div[@class='tox-dialog__footer']//button[contains(text(),'Save')]")).click();
+
+        }
+
+        driver.switchTo().frame(0);
+
         text.sendKeys(Keys.CONTROL, "a");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         if(messageProperty.equals("UNDERLINE"))
 
@@ -147,6 +177,13 @@ public class Messages extends BaseClass {
     */
         driver.switchTo().parentFrame();
 
+        listType = keepRefer.get("LIST_TYPE");
+
+        if(listType.equals("BULLETS"))
+        {
+            driver.findElement(By.xpath("//button[@title= 'Bullet list']")).click();
+        }
+
         fontType = keepRefer.get("MESSAGE_STYLE");
 
         driver.findElement(By.xpath(fontXpath)).click();
@@ -155,7 +192,7 @@ public class Messages extends BaseClass {
         reporter.reportLogPassWithScreenshot("Message details before saving");
         driver.findElement(By.xpath(saveButtonXpath)).click();
         reporter.reportLogPassWithScreenshot("New Message is Created successfully");
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
     }
 }
